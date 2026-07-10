@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テストページです。</title>
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1>練習サイトblockquoteなど</h1>
+      <nav>
+        <ul>
+          <li>ナビ1</li>
+          <li>ナビ2</li>
+          <li>ナビ3</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>ページ見出し</h2>
+      <section>
+        <h3>コンテンツ見出し</h3>
+        <p><cite>クラーク博士</cite>は<p>少年よ大志を抱け</p>と帰国時に語った</p>
+      </section>
+      <section>
+        <h3>コンテンツ見出し</h3>
+        <p><cite>平家物語</cite>の冒頭文</p>
+        <blockquote>
+          <p>祇園精舎の鐘の声<br> <!-- インデントが起きる -->
+            諸行無常の響きあり。<br>
+            沙羅双樹の花の色<br>
+            盛者必衰の理をあらはす。<br>
+          </p>
+        </blockquote>
+      </section>
+      <section>
+        <h3>文中の一部に使用するタグ</h3>
+        <p>seo対策に使われる、<strong>強い重要性</strong>を示したいときは&lt;strong&gt;を使用する</p>
+        <!-- strongが多く使う、ひっかかりやすいため -->
+        <p>seo対策に使用しない程度の<em>強調したい</em>文には&lt;em&gt;を使用する</p>
+        <p>重要ではないが<b>ちょっと目立たせたい</b>ときは&lt;b&gt;を使用する</p>
+        <p><i>心の中で思ったこと</i>や<i>知人になどに言われた言葉</i>などを示すときは&lt;i&gt;を使用する</p>
+        <hr>
+        <p><del>削除された</del>ことを示す時に&lt;del&gt;を使用</p>
+        <p>同じ取り消し線が入るが<s>変更された内容</s>を示す場合は&lt;s&gt;を使用し変更の場合は<ins>追加された内容</ins>を示す&lt;ins&gt;と
+          セットになるのが基本
+        </p>
+        <hr>
+        <p>ブラウザ表示では同じになるが用途の違うタグが増えているので、どのタグ
+          を使うかを間違わないように注意（あくまで意味・用途でタグ選択）</p>
+        <hr>
+        <p>化学式のH<sub>2</sub>oのような下にずれた文字を出す時は&lt;sub&gt;を使用する</p>  
+        <p>商標登録<sup>&reg;&trade;</sup></p>
+        <p>単位のm<sup>2</sup>や数式のx<sup>2</sup>などの上にずれた文字は&lt;sub&gt;を使用する</p> 
+        </p>
+        <hr>
+        <p>
+          サイト内検索の検索結果で指定した文字など<mark>他の場所の文と関連</mark>したものであることを
+          示す時は&lt;mark&gt;タグになる
+        </p>
+      </section>
+    </main>
+    <aside>バナー広告</aside>
+    <footer><small>copyright &copy; ○○株式会社 ALL　Rights Reserved.</small></footer>
+<!-- 
+smallタグからsmall
+    細目であることは示す
+    コピーライトを書く際に使用
+    （文字サイズが小さくなる)
+&copy;
+    cを〇で囲った丸付き文字になる→ © 文字実態参照のこと
+
+&gt; 覚えること推奨
+  >
+
+&lt;　覚えること推奨
+  <
+&quot;　覚えること推奨
+  "
+&nbsp;　覚えること推奨
+半角スペース1個
+ｈｔｍｌでは連続した半角スペースは1つ分しか表示しないが、&nbsp;を使うと
+複数個連続した半角スペースを出すことができる
+
+&amp;　覚えること推奨
+  &
+-->
+
+  </div>
+</body>
+</html>

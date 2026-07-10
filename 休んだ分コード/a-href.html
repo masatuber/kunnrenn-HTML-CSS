@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>テストページ</title>
+    </head>
+    <body>
+        <h1>アンカーリンク</h1>
+        <h2>外部サイト</h2>
+        <p><a href="https://google.com">Google</a></p>
+        <p><a href="https://yahoo.co.jp" rel="noopener noreferr"
+        target="_blank">yahoo</a></p>
+        <p>リンクに設定された文字は、初期値で下線がつく<br>
+        また、文字色青（キャッシュに訪問歴なし）もしくは紫（キャッシュに訪問歴あり）のどちらかになる</p>
+        <h2>サイト内他ページ</h2>
+            <p><a href="./ul-li.html">テストページ</a></p>
+<!-- 
+    相対パスで指定
+    上位フォルダへの移動は../
+    同一ファイルなら./
+    下位フォルダへはフォルダ名/
+    でファイルの場所まで移動してファイルを指定する
+    -->
+        <h2>ページ内の任意の場所</h2>
+          <p><a href="#top">ページトップへ</a></p>
+          <p>#topを指定するとを、id名topがない時はページの最上部へ移動</p>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>テストページ</title>
+    </head>
+    <body>
+        <h1>各種リスト</h1>
+        <h2>箇条書きリスト</h2>
+        <ul>
+            <li>リスト1</li>
+            <li>リスト2</li>
+            <li>リスト3</li>
+        </ul>
+        <h3>箇条書きリスト入れ子</h3>
+        <ul>
+          <li>リスト1</li>
+          <li>リスト2
+              <ul>
+                <li>リスト2-1</li>
+                <li>リスト2-2</li>
+              </ul>
+          </li>
+          <li>リスト3</li>
+        </ul>
+        <h2>条件付きリスト</h2>
+        <ol>
+            <li>リスト1</li>
+            <li>リスト2</li>
+            <li>リスト3</li>
+        </ol>
+        <!-- 
+        olはstart属性を使用することで、任意の場所からカウントを開始できる
+        -->
+        <h2>商品リスト</h2>
+        <d1>
+            <div>
+                <dt>商品1</dt>
+                <dd>商品1の説明</dd>
+            </div>
+            <div>
+                <dt>商品2</dt>
+                <dd>商品2の説明</dd>
+                <dd>商品の2の説明文追加</dd>
+            </div>
+        </d1>
+        <p><img src="./images/background-image.jpg" alt="背景画像"></p>
+
+    <p><img src="./images/SBSA5474.JPEG" alt="サムネイル"><img src="./images/da-iceリバーシアートワーク.jpg" alt="da-iceアートワーク"></p>
+<ul>
+    <li><a href="http://yahoo.co.jp"><img src="./images/EPIPHANY.jpeg" alt="画像"></a></li>
+    <li><a href="http://google.com"><img src="./images/background-image.jpg" alt="背景画像" width="200"></a></li>
+<!-- 
+    htmlの属性でサイズ調整する時は、横幅width属性で指定し、高さは指定しないが一般的
+    横幅のみを指定すると高さの元画像の縦横比を保った形で自動調整される
+-->
+
+</ul>
+<figure>
+    <img src="./images/2019-05-21 23.59.png" alt="サムネイル">
+    <figcaption>YouTubeエンディングサムネイル</figcaption>
+    <!-- figcaptionとaltは別用途なので、同じ文章でも両方必要 -->
+</figure>
+    </body>
+</html>
