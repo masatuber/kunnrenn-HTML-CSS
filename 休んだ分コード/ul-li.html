@@ -30,10 +30,16 @@
             <li>リスト3</li>
         </ol>
         <!-- 
-        olはstart属性を使用することで、任意の場所からカウントを開始できる
+          olはstart属性を使用することで、任意の場所からカウントを開始できる
         -->
         <h2>商品リスト</h2>
-        <d1>
+        <!-- 解説
+          HTMLの <dl> タグは、用語とその説明をセットにしてリスト化する「説明リスト（Description List）」を定義する要素です。
+          辞書や用語集、Q&A、メタデータ（キーと値のペア）などをマークアップする際に使用します以下ドキュメントURL
+          https://developer.mozilla.org/ja/docs/Web/HTML/Reference/Elements/dl
+          <dl> タグの中には、定義する用語を示す <dt> タグと、その説明を記述する <dd> タグをペアにして配置する
+        -->
+        <dl>
             <div>
                 <dt>商品1</dt>
                 <dd>商品1の説明</dd>
@@ -43,7 +49,7 @@
                 <dd>商品2の説明</dd>
                 <dd>商品の2の説明文追加</dd>
             </div>
-        </d1>
+        </dl>
         <p><img src="./images/background-image.jpg" alt="背景画像"></p>
 
     <p><img src="./images/SBSA5474.JPEG" alt="サムネイル"><img src="./images/da-iceリバーシアートワーク.jpg" alt="da-iceアートワーク"></p>
@@ -57,9 +63,15 @@
 
 </ul>
 <figure>
+  <!-- 
+    <figure>タグは、写真や図表、ソースコードなど、本文の流れから独立して参照できる自己完結したコンテンツをひとまとまりにするためのタグ 
+    通常、図のタイトルや説明文を記載する <figcaption> タグと組み合わせて使用。
+    イラスト、グラフ、コードなど
+    SEOへのメリット: 検索エンジンのクローラーが、画像や図表、ソースコードのまとまりを「注釈付きの分かりやすいコンテンツ」として認識する
+  -->
     <img src="./images/2019-05-21 23.59.png" alt="サムネイル">
     <figcaption>YouTubeエンディングサムネイル</figcaption>
-    <!-- figcaptionとaltは別用途なので、同じ文章でも両方必要 -->
+    <!--   figcaptionとaltは別用途なので、同じ文章でも両方必要    -->
 </figure>
     </body>
 </html>
