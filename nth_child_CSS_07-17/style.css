@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/* @charset "UTF-8"; → CSSファイルで文字化けを防ぐにはファイルの最上部に @charset "utf-8"; と記述する*/
+
+/* リストのliが四角になる
+  list-style-で始まるプロパティは、list-styleで一括指定可能。
+  font と違い、必須がなく順番も自由なので、どれか一つを指定する時でも使用可能。
+  複数の値を指定するときは半角スペース区切りで行う。
+*/
+ul>li {
+  list-style-type: square;
+  /* list-style-position: inside; */
+}
+
+ol {
+  list-style: lower-alphe;
+}
+
+ul>li:nth-child(1) {
+  color:red;
+}
+
+ul>li:nth-child(2) {
+  color: green;
+}
+
+ul>li:nth-child(3) {
+  color: blue;
+  /* リストマーカーは文字色と同色になる */
+}
+
+  /* 
+  list-style: hiragana-iroha;
+  list-style: cjk-decimal;
+  */
+
+ol>li:nth-child(2n) {
+  color: brown;
+}
+
+ol>li:nth-child(2n-1) {
+  color: blueviolet;
+}
+
+/* 四角のマーカーだけ色がついて、文字が黒になった */
+ul>li>span {
+  color: black;
+}
+
+ul#anker>li>a:link {
+  color: pink;
+}
+
+ul#anker>li>a:visited {
+  color: yellow;
+  text-decoration: red;
+}
+/* 
+  text-decorationで下線などの色を指定することも可能
+  指定しない場合、文字色とご同じ色の線になる
+*/
+
+ul#anker>li>a:hover {
+  text-decoration: none;
+  color: black;
+}
+/* 
+  :hoverと:activeはほかのものと同時に別の指定をするときに、記載順を
+  間違ってしまうと上書きされて無効になってしまうので注意
+  例えば文字色を変更する場合、:hoverを先に、そのあとにvisitedを書いてしまうと
+  後から書いたvisitedの上書きをしてしまいhover時に変化しなくなる
+*/
+
+/* 上に線が付く、クリックをしっぱなしで見える */
+ul#anker>li>a:active {
+  text-decoration: overline;
+}
+
+/* マウスホバーでCSSが変化する */
+section>p:hover {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
