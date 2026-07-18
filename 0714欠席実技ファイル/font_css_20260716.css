@@ -1,0 +1,58 @@
+@charset "UTF-8";
+h1 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.caps{
+  font-variant: small-caps;
+}
+/* 
+idに指定するときは#id名で指定
+classに指名するときは.class名で指定
+今日は、クラス名capsに対しての指定になる
+ */
+
+p{
+  line-height: 3.0;
+}
+/* .capsもpタブの中なので、line-heightが適用 */
+
+h1{
+  font: normal 1rem serif;
+}
+/* 
+h1に対し、
+・文字の大きさ(font-weight)をnormal
+・文字サイズ（font-size）を1rem
+・フォントの種類（font-family）をserif(明朝体)
+の3つを一括指定 
+最小2つの指定(必須のfont-size/font-family）
+指定の仕方は、サイトの中で統一すること(個別指定or一括指定)
+*/
+
+h2{
+  letter-spacing: 1rem;
+}
+
+h3{
+  text-align: justify;
+  text-align-last: justify; /* 最終行も均等割り付けにする */
+}
+/* 2行以上ある文章の「途中の行」にしか効かない。という標準仕様(ブラウザのルール)があるため、複数行ある場合の最終行、あるいは1行しかない短い文には自動的に左寄せになる。
+強制的に均等割り付けしたい場合は、
+text-align-last: justify;
+を追加
+しかし、上記のコードはEdgeなどブラウザによって有効にならない場合もあり
+Can I use... で調べる。
+CSS property＞Sub-featuresで確認
+使えると出てきてもブラウザでも確認する。
+*/
+

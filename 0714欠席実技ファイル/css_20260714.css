@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+html{
+  font-size: 62.5%;
+}
+/* remの基準を10pxに変更 */
+body{
+  font-size: 1.6rem;
+}
+/* 表示サイズを元に戻す */
+
+h1{
+  color:red;
+}
+
+h2{
+  font-size: 3.2rem;
+  color:rgb(125, 050, 255);
+}
+/* 文字サイズは、デザイナーから細かく指示がない場合（pxで感覚）、自分で計算する必要がある */
+
+/* nav>ul>li{
+  font-size: 1.5rem;
+} */
+/* nav>ul>liと指定すると、優先度が3点となり、単にliと指定した時より優先度が高くなる */
+
+strong{
+  font-weight: normal;
+}
+
+em{
+  font-style:normal;
+}
+
+li{
+  font-size: 80%;
+}
+/* %とemは親要素の文字サイズからの比率が反映 */

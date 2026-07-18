@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--レスポンシブデザイン対応-->
+    <title>css連携テスト</title>
+    <link rel="stylesheet" href="css_20260714.css">
+    <link rel="icon" href="./images/verification_favicon.jpeg">
+  </head>
+  <body>
+    <header>
+      <h1>見出し</h1>
+      <nav>
+        <ul>
+          <li>ナビ1</li>
+          <li>ナビ2</li>
+          <li>ナビ3</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <hr>
+      <!-- storong/emで表示された文字の形式をCSSで変更 -->
+      <h2>中見出し</h2>
+      <p><strong>強調</strong>テキスト</p>
+      <!-- SEO対策で作成側の都合でつけることが多いため、直すことが多 -->
+      <p><em>大事な文章</em></p>
+      <ul>
+        <li>リスト1</li>
+        <li>リスト2<ul>
+          <li>リスト2-1</li>
+          <li>リスト2-2</li>
+        </ul></li>
+        <li>リスト3</li>
+      </ul>
+      <!-- ulの子要素はliしかできない。文字も画像もなんでもulの後ろに来たら、子供になる -->
+      <!-- そのため、<li><ul>リスト2の書き方だと、「リスト2」がulの子供の認識になる（htmlの記載ルール違反） -->
+    </main>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--レスポンシブデザイン対応-->
+    <title>各種リスト表示例</title>
+</head>
+<body>
+    <h1>各種リスト</h1>
+    <h2>箇条書きリスト</h2>
+    <ul>
+      <li>リスト1</li>
+      <li>リスト2</li>
+      <li>リスト3</li>
+    </ul>
+    <h2>箇条書きリストの入れ子</h2>
+    <ul>
+      <li>list1</li>
+      <li>list2
+        <ul>
+          <li>list2-1</li>
+          <li>list2-2
+            <ul>
+              <li>list2-2-1</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>list3</li>
+    </ul>
+    <h2>順序付きリスト</h2>
+    <ol>
+      <li>リスト1</li>
+      <li>リスト2</li>
+      <li>リスト3</li>
+    </ol>
+    <!-- olはstart属性を使用することで、任意の場所からカウントを開始できる -->
+    <ol start="4">
+      <li>test1</li>
+      <li>test2</li>
+    </ol>
+    <h2>説明リスト</h2>
+    <dl>
+      <div>
+        <dt>商品1</dt>
+        <dd>商品1の説明</dd>
+      </div>
+      <div>
+        <dt>商品2</dt>
+        <dd>商品2の説明</dd>
+        <dd>商品2の説明補足</dd>
+      </div>
+      <!-- <div>～</div>は何もしないタグと言われている。グループ化の考え方 -->
+    </dl>
+</body>
+</html>
