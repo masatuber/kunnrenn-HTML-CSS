@@ -1,0 +1,49 @@
+
+body,h2,p,dl,dt,dd{
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 300px;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 1000px;
+  background: rgb(200 200 200/0.5);
+  
+}
+
+.main_class {
+  background: rgb(200 200 200/0.5);
+  width: 1000px;
+  
+}
+
+.main_class::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+#col1 {
+  background: green;
+  float: left;
+  margin-left: 25px;
+  width: 300px;
+}
+
+#col2 {
+  background: yellow;
+  float: left;
+  margin-left: 25px;
+  width: 300px;
+}
+
+#col3 {
+  background: red;
+  float: left;
+  margin-left: 25px;
+  width: 300px;
+}

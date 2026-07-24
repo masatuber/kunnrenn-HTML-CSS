@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+body,ul,li {
+  margin: 0;
+  padding: 0;
+}
+
+/* liは非表示 */
+li {
+  list-style: none;
+}
+
+/* nthで4つ指定し色も変更させる */
+li:nth-child(1) {
+  background: red;;
+}
+
+li:nth-child(2) {
+  background: green;
+}
+
+li:nth-child(3) {
+  background: blue;
+}
+
+li:nth-child(4) {
+  background: yellow;
+}
+
+/* 横並び */
+ul.list_a,ul.list_b {
+  display: flex;
+}
+/* 
+display: flexを指定すると、子要素のwidthは初期値でautoになるが、CSSで指定することにより
+サイズ変更が出来、横1列で収まらない場合は2列目以降に表示される
+（折り返し指定を行った場合）
+*/
+
+ul {
+  width: 600px;
+  /* 折り返し指定をしたらなる */
+  flex-wrap: wrap;
+}
+
+ul.list_a>li {
+  width: calc(100%/3);
+}
+
+/* 
+calc()内に計算式を書くと計算結果で処理を行う、3個なら/3となる
+*/
+
+ul.list_c {
+  display: flex;
+  flex-direction: row;
+}
+
+
+#wrapper {
+  margin: 0 auto;
+  width: 1000px;
+  display: flex;
+}
+
+/* 
+親ボックスのwidth より小さいwidth を設定したうえで、margin の左右にautoを指定
+すると、左右のmarginを均等幅に自動計算で行ってくれるため、
+そのボックスは親ボックス内で中央寄せになる
+*/
+
+ul.list_b {
+  /* display: flex; */
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* ul.list_c>li:nth-child(2) {
+  flex-grow: 1;
+}
+
+ul.list_c>li:nth-child(3) {
+  flex-grow: 2;
+} */
+
+ul.list_c>li {
+  flex-grow: 1;
+}
+/* 
+余白になる部分になるすべての要素に均等に割付
+*/

@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* 余白を持っている */
+body,h2,p,ul,li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+#wrapper {
+  width: 1000px;
+  margin: 0 auto;
+  background: rgb(200 200 200/0.5);
+}
+
+#col1 {
+  background: rgb(255 0 0/0.5);
+  width: 48%;
+  float: left;  /* 片側のみかかる */
+  
+}
+
+#col2 {
+  width: 35%;
+  float: right; /* 両方にかかる、footerが真ん中にくる */
+  background: rgb(0 255 0/0.5);
+}
+/* 
+clearが正しく行われていない場合、floatしたものが浮いたままに
+なってしまい、次の要素（今回であればfooter)が回り込みを始めてしまう
+併せて、浮いているボックスの高さが認識できず、wrapperに指定した背景が
+入らない
+*/
+
+.clear-fix::after {
+  background: red;
+  display: block;
+  content: "";
+  clear: both;
+}
