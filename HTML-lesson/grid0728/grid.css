@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+/* 初期値の余白など */
+body,p {
+  margin: 0;
+  padding: 0;
+}
+
+#Wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#contener {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+/* 
+frの数値部分に小数点使用可能
+*/
+
+  grid-template-rows: 200px 200px 200px 200px;
+  gap: 10px 20px;
+
+  /* 
+  縦はtemplate-rowsをPXで指定しているので、そのサイズで固定
+  横は全体のサイズ（今回は指定がないので100%）からgapで指定した
+  サイズを引いた残りを4等分したサイズ
+  */
+}
+
+.item_A {
+  grid-column: 1/4;
+  grid-row: 2/1;
+  background: red;
+}
+
+.item_B {
+  grid-column: 1/2;
+  grid-row: 2/5;
+  background: blue;
+}
+
+.item_C {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background: green;
+}
+
+.item_D {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  background: purple;
+}
+
+.item_E {
+  grid-column: 2/3;
+  grid-row: 4/5;
+  background: yellow;
+}
+
+.item_F {
+  grid-column: 3/4;
+  grid-row: 2/3;
+  background: navy;
+}
+
+.item_G {
+  grid-column: 3/5;
+  grid-row: 3/4;
+  background: rgb(42, 159, 165);
+}
+
+.item_H {
+  grid-column: 3/4;
+  grid-row: 4/5;
+  background: brown;
+}
+
+.item_I {
+  grid-column: 4/5;
+  grid-row: 1/3;
+  background: pink;
+}
+
+.item_J {
+  grid-column: 4/5;
+  grid-row: 4/5;
+  background: palegreen;
+}
