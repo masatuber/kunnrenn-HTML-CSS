@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+/* 全体のマージンと幅、中央寄せ */
+#wrapper {
+  width: 1000px;
+  margin: 0 auto;
+  height: 3000px;
+  background: rgb(200 200 200);
+}
+
+section>div {
+  width: 600px;
+  height: 200px;
+  position: relative;
+}
+
+.box1 {
+  background: rgb(255 0 0/0.5);
+  z-index: 10;
+  position: relative;
+}
+/* 
+.box1のposition指定は、z-indexを有効にするために
+移動しないがstatic以外の指定を行っている
+staticは聞かないから注意する
+*/
+
+.box2 {
+  background: rgba(242, 255, 0, 0.685);
+  /* 左にポジションずらす */
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  z-index: 100;
+  
+}
+/* 
+  absoluteの移動は、重ねる目的で行うか
+  javaScriptで動かす目的で行う
+  写真の上にキャプションを出したい時や
+  スライドショーなどで使用
+*/
+
+.box3 {
+  background: rgba(238, 0, 255, 0.608);
+  position: relative;
+  top: 100px;
+  left: -100px;
+  z-index: 1;
+
+}
+/* 
+  relativeでの移動は相対移動といわれ、本来表示される
+  場所場所からずらす形の移動となり、本来出来る予定だった
+  場所はキープされる
+*/
+
+.box4 {
+  background: rgba(0, 128, 255, 0.5);
+}
+
+.totop {
+  height: auto;
+  width: 50px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  position: fixed;
+  left: auto;
+  margin-left: 950px;
+  bottom: 100px;
+}
+/* 
+widthとheightをauto とすｒことで、子要素のaタグのサイズ
+をそのままdivのサイズとする
+*/
+
+.totop>a {
+  display: block;
+  /* インラインだがブロックにした */
+  padding: 20px;
+  width: 50px;
+  box-sizing: border-box;
+  /* Aタグがはみ出しあるといやだから設定する */
+  text-decoration: none;
+  /* アンダーラインがあったから消す */
+}
+
+section>h2 {
+  position: sticky;
+  top: 0;
+  /* background: rgb(200 200 200); */
+}
+/* 
+スクロールの際に、表示を続けるh2とリスト項目の文字が
+重なってしまうので、h2に背景と同じ色を指定することで、
+文字の重なりが起こらないようにする
+*/
