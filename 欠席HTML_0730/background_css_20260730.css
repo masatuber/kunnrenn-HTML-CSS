@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+#wrapper{
+  width: 1000px;
+  height: 2000px;
+  margin: 0 auto;
+  background: rgb(200 200 200/.7);
+}
+body{
+  background: url("./images/tora.png") repeat;
+}
+/* 強制改行をしたい場合は、強制改行=半角スペースの意味の為、半角スペースの場所で改行するとよい */
+body,h1{
+  margin: 0;
+  padding: 0;
+}
+.background_test{
+  height: 1000px;
+  background: rgb(255 0 0 /.8) url("/images/hukurou/hukuhuku\ \(3\).jpg") no-repeat top/cover;
+}
+/* positionの指定で上下方向・左右方向のどちらかのみ指定した場合、指定していない方はcenterが指定されたことになる */
+/* サイズを指定(拡大縮小してエリアに1枚貼り付け)する時は、positionの後に/区切りで指定する
+例）top /cover
+    top center /contain
+*/
+.background_test>h2{
+  background: rgb(255 255 255 / .2);
+}
+
+/* 表作成について */
+.table_test{
+  height: 500px;
+  background: rgb(0 255 0 /.8);
+  padding-top: 20px;
+}
+table,th,td{
+  border: 1px solid black;
+}
+table{
+  border-collapse: collapse; /*見た目二重線を一重線に変更。また、border-collapseを設定する場合は、必ずtable,th,tdは線種、線色、太さを同じにしないとブラウザによって表示が乱れるため、まとめて設定が必要*/
+  width: 600px;
+}
+/* tableにwidthを設定し、thやtdにwidthを指定しなかった場合、各セルのwidthは、文字数の比率で分配された数値となる */
+/* thだけ、太字で中央寄せ */
+td{
+  padding-left: 10px;
+}
+/* tdに枠線を設定すると文字が枠線にくっついているような表示になり視認性が落ちる。
+このような場合は、tdにpadding-leftを設定して隙間をあける。 */
+caption{
+  caption-side: bottom;
+}
