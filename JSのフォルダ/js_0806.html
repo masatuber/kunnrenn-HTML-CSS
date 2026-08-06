@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSの練習</title>
+</head>
+<body>
+  <script>
+// 0～23の数値を判定
+// 0～11の時はam〇時
+// 12〜23の時は12を引いたうえでpm〇時
+// もしそれ以外の値が来た時は入力エラー
+// とコンソールに表示
+
+let hour1 = 11;
+
+if (hour1 >= 0 && hour1 <= 11) {
+  console.log("am" + hour1);
+} else if(hour1 >= 12 && hour1 <= 23) {
+let hour2 = hour1 - 12;
+console.log("pm" + hour2 + "時");
+} else {
+  console.log("入力エラー");
+}
+/*____________________________________________________
+プログラムのテストデータの考え方について↓
+条件判定の確認をする時は
+・境界値を使用、条件が切り替わる値は？
+  判定が変わるギリギリの数値、今回でいえば
+  0 11 12 23 それ以外の
+  4つ以上を確認する
+
+  それ以外には、数値のみしか受け取らないのであれば-1と24
+  文字列の可能性もある場合は追加で何らかの文字列を使用する。
+・中間値を使用
+  判定範囲内の中間になるような値、もしくは一番平均的な値を確認する
+  今回でいえば
+  6前後の数値、18前後の数値
+  それ以外の方は-6や30などの数値
+  文字列は全てはじくので、境界値同様何らかの文字列を使用する
+____________________________________________________*/
+// console.log(hour2) 変数hour2はif文の部ブロック内で定義しているため、ブロック外では
+// 未定義となるためエラーになる(letはブロックスコープ)
+
+// サイコロの目で分岐
+// 1か2が出たら1マス進む
+// 3か4が出たら2マス進む
+// 5か6が出たら3マス進む
+// 1～6以外の値の時は入力エラー
+  let dice = 4;
+  switch(dice) {
+      case 1:
+      case 2:
+        console.log("1マス進む");
+      break;
+      case 3:
+      case 4:
+        console.log("2マス進む");
+      break;
+      case 5:
+      case 6:
+        console.log("3マス進む");
+      break;
+      default:
+        console.log("入力エラー");
+      break;
+  } 
+
+// ifの場合はどのようになるか
+  if(dice === 1 || dice === 2) {
+    console.log("ifでの1マス進む");
+
+  } else if (dice === 3 || dice === 4) { // 一番上がいいえの時
+    console.log("ifでの2マス進む");
+
+  } else if (dice === 5 || dice === 6) { // 2番上がいいえの時
+    console.log("ifでの3マス進む");
+
+  } else {
+    console.log("ifでの入力エラー");
+
+  }
+
+
+  </script>
+</body>
+</html>

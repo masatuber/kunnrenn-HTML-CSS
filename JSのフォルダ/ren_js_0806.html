@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+// 初期値
+    let guusuu = 13;
+//  あまりを求める計算
+    let keisann = guusuu % 2;
+  
+    if (keisann === 0 ) { // &&  guusuu === 0
+      console.log("あまりなしで偶数で計算結果は", keisann);
+    } else {
+      console.log("あまりありで奇数で計算結果は", keisann);
+    }
+
+// うるう年
+    let uruudosi = 2001;
+
+    let tosikeisann400 = uruudosi % 400;
+
+    let waru4 = uruudosi % 4;  
+
+    let a = uruudosi % 100;
+console.log(2001%100)
+    if (tosikeisann400 === 0 ) {
+        console.log("400で割って割り切れる年であまりは", tosikeisann400);
+    } 
+    
+    if (waru4 === 0) {
+      console.log("4で割れきれる、あまりは", a)
+      if (waru4 % 100 >= 1) {
+        console.log("4割切ったあとに100で割り切れない");
+      }
+    } 
+
+
+  </script>
+</body>
+</html>
