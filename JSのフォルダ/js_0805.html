@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let num1 = 1, num2 = 2, str1 = "1"; // スラッシュ2つでそれ以降その行がコメントアウト
+    /*________________________________________________________
+    複数行のコメントはスラッシュ*から*スラッシュ
+    もしくは各行にスラッシュ2つを記載する
+    ________________________________________________________*/
+  //  vs codeの機能で、CTRL押しながらスラッシュを押すとコメントの作り方をすると
+  // 複数行でも各行にスラッシュ2つの形になる
+
+  //________________________________________________________
+  //  変数名の今回のつけ方
+  // 数値を入れる予定の箱にはnumberからnum
+  // 文字列を入れる予定の箱にはStringからstr
+  // 結果を入れる予定の箱にはresult
+  // 判定結果を入れる予定の箱にはflag
+  // ________________________________________________________
+
+  console.log(num1 + num2);
+  console.log(num1 + str1);
+// ファイアーフォックスの場合、コンソールに出した値が数値の時は緑色になる
+// +の両サイドが数値なら算術演算、文字列があれば文字列連結になる
+    let num3 = 1, num4=1;
+    let result1 = num3++;
+    let result2 = ++num4;
+    console.log("result1は" + result1);
+    console.log("result2は" + result2);
+    console.log("num3は" + num3);
+    console.log("num4は" + num4);
+    
+    // 割る、余りを見る
+    let result3 = 5/2;
+    let result4 = 5%2;
+    console.log("result3は" + result3);
+    console.log("result4は" + result4);
+
+    // ()内は先に処理して欲しいの意味 = 演算の違い
+    let num5 = 1, str5 = "1";
+    let flag1 = (num5 == str5);
+    let flag2 = (num5 === num5);
+    console.log("==の時は" + flag1);
+    console.log("===の時は" + flag2);
+
+    // ||のorの使い方
+    let num6 = 9;
+    let flag3=(num6 % 3 == 0 || num6 % 5 == 0);
+    console.log("orの判定結果は" + flag3);
+    // 判定は3余りが0(num6 % 3 == 0)か5で余りが0（num6 % 5 == 0）ならtrue
+
+    // 初期値のブーリアンの反転するパターン
+    let flag4 = true;
+    flag4 = !flag4;
+    console.log("flag反転して" + flag4);
+
+    </script>
+
+</body>
+</html>
