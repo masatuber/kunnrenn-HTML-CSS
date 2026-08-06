@@ -20,24 +20,16 @@
     }
 
 // うるう年
-    let uruudosi = 2001;
-
-    let tosikeisann400 = uruudosi % 400;
-
-    let waru4 = uruudosi % 4;  
-
-    let a = uruudosi % 100;
-console.log(2001%100)
-    if (tosikeisann400 === 0 ) {
-        console.log("400で割って割り切れる年であまりは", tosikeisann400);
-    } 
-    // 4で割り切れるが出来ない
-    if (waru4 === 0) {
-      console.log("4で割れきれる、あまりは", a)
-      if (waru4 % 100 >= 1) {
-        console.log("4割切ったあとに100で割り切れない");
-      }
-    } 
+  let uruuYear = 1236;
+    if (uruuYear % 400 === 0) {
+      console.log("400で割切れるからうるう年 余りはない",);
+    } else if (uruuYear % 100 === 0) {
+      console.log("100で割切れるので平年 余りはない");
+    } else if (uruuYear % 4 === 0 ) {
+      console.log("4で割切れるのでうるう年");
+    } else {
+      console.log("それ以外のため平年");
+    }
 
 
   </script>
