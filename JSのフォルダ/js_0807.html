@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSの繰り返し練習</title>
+</head>
+<body>
+  <script>
+// 1+2+3+....と1から順に足していき、合計が100を超えたらループを終了
+// その時の合計の数値をコンソールに出力する
+    let num = 1, sum = 0; // numは足していく数値、  sumは合計
+    while (sum <= 100) { // sumが100以下ならループを継続
+      sum += num; // これはsum = sum + numと同じ処理
+      num++; // numを次の足す数値に変更
+    }
+    console.log("合計", sum);
+    console.log("合計", num); // 14まで足して105になってループ終了。numは次に足す15になっている
+// while (1)とbrekを使用して同じ処理
+  let numA = 1, sumA = 0;
+    while (true) {
+      sumA += numA;
+      if (sumA > 100) { // 合計値が100を超えたらループ終了（break）
+        break;
+      }
+      numA++;
+    }
+  console.log(sumA);
+  console.log(numA); // この書き方だと最後に足した数値が出力される
+
+  // let numB = 1, sumB = 0;
+  // while (1) {
+  //   sumB += numB;
+  //   if (sumB < 0) { // 永久ループ用
+  //     break;
+  //   }
+  //   numB++;
+  //   alert(sumB);
+
+  //   //alertはユーザーに確認してもらう目的で通常使用するが
+  //   // 開発時にはループ文のデバックにも使用する
+  // }
+let numC = 0;
+  do {
+    numC++;
+  } while (0); // while (0)は繰り返しなしで終了する
+  // 文はdoブロックの後にwhileを書く
+  // ブロックを作る文は「;」は不要なためif文やwhile文は;は不要です
+  // do-while文はdoにはブロックがあるがwhileにはブロックがないため、「;」が必要
+
+  console.log(numC);
+  // ループはしないがdo-whileは1度は処理を行うためnumCは1になる
+  // ※while文は1度も処理しない可能性があり、do-whileは必ず1度は処理をする。
+  // break;を使用するとループ処理中の任意の場所でループ終了判定を実行できる。
+  // break;を使用する際は、while(1)と永久ループにしてbreak;使用を明示することが多い
+  </script>
+</body>
+</html>

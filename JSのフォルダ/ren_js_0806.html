@@ -7,9 +7,9 @@
 </head>
 <body>
   <script>
-
+// 偶数か奇数かの条件分岐
 // 初期値
-    let num1 = 13;
+    let num1 = 12;
 //  あまりを求める計算
     let calculation1 = num1 % 2;
   
@@ -19,16 +19,28 @@
       console.log("あまりありで奇数で計算結果は", calculation1);
     }
 
-// うるう年
-  let uruuYear = 1236;
+// うるう年の条件分岐
+  let uruuYear = 1995;
+  const amari4 = (uruuYear % 4);
+  const amari_100 = (uruuYear / 4) % 100;
+  
     if (uruuYear % 400 === 0) {
-      console.log("400で割切れるからうるう年 余りはない",);
-    } else if (uruuYear % 100 === 0) {
-      console.log("100で割切れるので平年 余りはない");
-    } else if (uruuYear % 4 === 0 ) {
-      console.log("4で割切れるのでうるう年");
+      console.log("400で割切れるからうるう年 余りは:"+ (uruuYear % 400));
+
+    } else if ( uruuYear % 100 === 0 ) {
+      console.log("100で割切れるので平年 余りはない、ただし例外がある");
+
+      if (uruuYear % 400 !== 0) {
+        console.log("100で割切れるが400で割ると余りが出るからうるう年ではない" ,uruuYear % 400);
+      }
+      
+
+    } else if (amari4 === 0 &&  amari_100 >= 1) {
+      console.log("4で割切れるのでうるう年、" + "4で割った時の余りは",  amari4);
+      console.log("さらに100で割った時の余りは？", amari_100);
+      
     } else {
-      console.log("それ以外のため平年");
+      console.log("それ以外のため平年", "平年の年：", uruuYear);
     }
 
   </script>

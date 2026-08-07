@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+// 偶数か奇数かの条件分岐
+// もう一つの書き方
+    let num1 = -11;
+
+//マイナス検証は自分の問題で行った
+    if (0 > num1) {
+      console.log("マイナスの値だよ");
+
+  } else if (num1 % 2) {
+    console.log(num1 + "は奇数");
+
+  } else {
+    console.log(num1 + "は偶数");
+
+  }
+  
+// 0はfalse判定になる
+// 今回 num1 % 2 の答えならそれをそのまま判定するとfalseになる
+
+// うるう年の条件分岐
+  let uruuYear = 2100;
+  const amari4 = (uruuYear % 4);
+  const amari_100 = (uruuYear / 4) % 100;
+  
+    if (uruuYear % 400 == 0 || (uruuYear % 4 == 0 && uruuYear % 100 != 0)) {
+    console.log(uruuYear + "年はうるう年")
+    } else {
+      console.log(uruuYear + "年はうるう年ではない");
+    }
+// 上記はuruuYear % 100 == 0の結果のtrue falseを反転
+// uruuYear % 100 != 0
+// 上記は100で割った余りが0ではない
+// 結果はどちらも同じ
+  </script>
+</body>
+</html>
