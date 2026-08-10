@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for文練習する</title>
+</head>
+<body>
+  <Script>
+    let str = ""; // ここに文字列を連結していく
+    for(let i = 0; i < 5; i++) { // 5回ループ
+      str += "あ"; // 文字列連結「あ」の数たけループしている
+      // str += "あ"; は　str = str + "あ"と同じ処理
+    }
+    // 1から10を全て足した合計を求める
+    // このケースではiを1から始めた方が効率的となる
+    console.log(str);
+
+    let sum=0; // 合計をＳＵＭに求めていく
+    for(let i = 1; i <= 10; i++) { // iが1から10までの間ループする
+    sum+=i;
+    }
+    console.log(sum);
+    // iはfor文の中でのみ有効のためここでは未定義エラーになる
+   // console.log(i);
+
+  // 1から100まで順に足していき、もし途中で3000を超えたら終了
+  // 超えなかった場合は最後まで足していく
+  // 途中で超えた場合は最後に足した値もconsoleに表示する
+  let sum2 = 0;
+  for(let i=1; i <= 100; i++) {
+    sum2 += i;
+   // alert(sum2)
+    if(sum2 > 3000) {
+      console.log(i + "を足して3000超えた");
+      break;
+    }
+  }
+  console.log("合計は"+ sum2);
+  let sum3 = 0, cnt = 1;
+  while(sum3 < 3000) {
+    sum3+=cnt;
+    cnt++;
+    if(cnt > 100) { // 100でここに来た時に100はまだ足していないので、100を超えたら,下のifに行く
+      break;
+    }
+    if (sum3 > 3000) {
+      cnt--; // sum3に足したあとcnt++ してから判定しているのでｍ足したcntは1つ前まで
+      console.log(cnt +"を足して3000超えた")
+    }
+  }
+  console.log("合計は" +sum3);
+  cnt = undefined; //必要に応じて変数の値をリセット
+  </Script>
+</body>
+</html>

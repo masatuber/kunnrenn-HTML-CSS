@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for練習</title>
+</head>
+<body>
+  <script>
+    // let tyokinn = 1;
+    // for (let i =1; i <= 30; i++) {
+    //   tyokinn *=2;
+
+    //   if(tyokinn >= 1000000) {
+    //     console.log("100万超えた時の金額", tyokinn);
+    //     console.log("何日、何回目"+ i);
+    //     break;
+    //   }
+
+    //   }
+
+      let chokin =1, chokinSum = 0;
+      for(let i = 1; i < 30; i++) { //iは何日目
+          chokinSum += chokin; // i日目の貯金を実行
+        if (chokinSum > 1000000) {
+          console.log(i + "日目の貯金を実行");
+          break;
+        }
+
+        chokin *= 2; // 翌日の貯金額設定
+
+        if (chokinSum <= 1000000) { // chokinSumが100万以下なら30日間貯金した
+          console.log("30日目で貯金終了" + i);
+        }
+      }
+      console.log("貯金額は"+ chokinSum + "円");
+// 貯金総額はその日の貯金額の2倍-1
+// 1は2の0乗、524288は2の19乗
+//なので20日間となる
+  </script>
+</body>
+</html>
