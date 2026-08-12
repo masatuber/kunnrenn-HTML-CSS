@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>for練習</title>
+  <title>for練習問題</title>
 </head>
 <body>
   <script>
@@ -19,20 +19,25 @@
 
     //   }
 
+// 回答
       let chokin =1, chokinSum = 0;
       for(let i = 1; i < 30; i++) { //iは何日目
           chokinSum += chokin; // i日目の貯金を実行
+
         if (chokinSum > 1000000) {
           console.log(i + "日目の貯金を実行");
           break;
+
         }
 
         chokin *= 2; // 翌日の貯金額設定
 
         if (chokinSum <= 1000000) { // chokinSumが100万以下なら30日間貯金した
           console.log("30日目で貯金終了" + i);
+
         }
       }
+
       console.log("貯金額は"+ chokinSum + "円");
 // 貯金総額はその日の貯金額の2倍-1
 // 1は2の0乗、524288は2の19乗

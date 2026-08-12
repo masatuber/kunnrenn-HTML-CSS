@@ -18,8 +18,10 @@
 
     let sum=0; // 合計をＳＵＭに求めていく
     for(let i = 1; i <= 10; i++) { // iが1から10までの間ループする
-    sum+=i;
+      sum+=i;
+
     }
+
     console.log(sum);
     // iはfor文の中でのみ有効のためここでは未定義エラーになる
    // console.log(i);
@@ -37,6 +39,7 @@
     }
   }
   console.log("合計は"+ sum2);
+
   let sum3 = 0, cnt = 1;
   while(sum3 < 3000) {
     sum3+=cnt;
@@ -44,13 +47,16 @@
     if(cnt > 100) { // 100でここに来た時に100はまだ足していないので、100を超えたら,下のifに行く
       break;
     }
+  
     if (sum3 > 3000) {
       cnt--; // sum3に足したあとcnt++ してから判定しているのでｍ足したcntは1つ前まで
       console.log(cnt +"を足して3000超えた")
     }
   }
   console.log("合計は" +sum3);
+
   cnt = undefined; //必要に応じて変数の値をリセット
+
   </Script>
 </body>
 </html>
