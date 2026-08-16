@@ -30,7 +30,7 @@
   // 超えなかった場合は最後まで足していく
   // 途中で超えた場合は最後に足した値もconsoleに表示する
   let sum2 = 0;
-  for(let i=1; i <= 100; i++) {
+  for(let i = 1; i <= 100; i++) {
     sum2 += i;
    // alert(sum2)
     if(sum2 > 3000) {
@@ -42,7 +42,7 @@
 
   let sum3 = 0, cnt = 1;
   while(sum3 < 3000) {
-    sum3+=cnt;
+    sum3 += cnt;
     cnt++;
     if(cnt > 100) { // 100でここに来た時に100はまだ足していないので、100を超えたら,下のifに行く
       break;
