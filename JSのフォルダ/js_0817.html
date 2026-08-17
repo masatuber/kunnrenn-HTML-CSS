@@ -61,6 +61,24 @@
       }
     }
 
+    let strArr1 = ["a","b","c","d"];
+    strArr1.push("e"); // 後ろにeを追加する動きとメソッド
+    console.log(strArr1);
+// さらに追加で"f"g"を後ろに
+    strArr1.push("f", "g");
+    console.log(strArr1);
+// 配列の要素の先頭に"追加"を挿入
+    strArr1.splice(0,0,"追加"); // 0番目から0個削除して挿入
+    console.log(strArr1);
+
+// "c"と"d"を削除
+// "c"が添字番号3になっているので、3から2個削除
+    strArr1.splice(3,2);
+    console.log(strArr1);
+// "f"を削除して"挿入1""挿入2"を挿入
+// "f"が添え字番号4になっているので、4から1個削除して2個挿入
+    strArr1.splice(4,1,"挿入1","挿入2");
+    console.log(strArr1);
   </script>
 </body>
 </html>
