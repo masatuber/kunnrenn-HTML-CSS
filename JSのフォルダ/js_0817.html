@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>配列練習forと絡めて</title>
+</head>
+<body>
+  <script>
+    let arr1 = [1, "abc", "あいう"]; // リテラル
+    let arr2 = new Array(1, "abc", "あいう"); // オブジェクト
+    console.log(arr1); // 配列出力
+    console.log(arr2);
+    console.log(arr1[1]); // arr1 の添字番号1をコンソール表示する
+    console.log(arr1.length); // arr1の要素数表示
+// 数値を1つのみ指定したときのリテラルとオブジェクトの違い確認
+    let arr3 = [4];
+    let arr4 = new Array(4);
+    console.log(arr3); // 要素数1個の配列
+    console.log(arr4); // 要素数4個で中身は空の配列 [ <4 empty slots> ]
+// 二次元配列3*3を作成
+    let nijiArry1 = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+    ]; // リテラル
+
+    let nijiArry2 = new Array(3);
+    nijiArry2[0] = new Array(1, 2, 3);
+    nijiArry2[1] = new Array(4, 5, 6);
+    nijiArry2[2] = new Array(7, 8, 9); // ここまで4命令でオブジェクト,面倒でもある
+    console.log(nijiArry1);
+    console.log(nijiArry2);
+// 上記のように中身がバラバラのデータを入れる時はリテラルが向いている
+
+// 二次元配列3*3 を作り、全てに0を入れる
+    let nijiArr3 = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ]; // リテラル
+
+    let nijiArr4 = new Array(3);
+      console.log(nijiArr3, "二次元配列リテラル");
+      console.log(nijiArr4, "オブジェクト");
+
+    for (let i=0; i < nijiArr4.length; i++) { // 一次元配列のループ
+      nijiArr4[i] = new Array(3);
+      for (let j = 0; j < nijiArr4[i].length; j++) { // 二次元配列のループ
+        nijiArr4[i][j] = 0;
+      }
+    } // オブジェクト
+// 多次元配列のすべての要素にアクセスする時はfor文で行う
+// 一次元配列1重、二次元配列なら2重ループで行う
+// それぞれで0からlengthの数までfor文にすることで全てのデータにアクセス出来る
+// 上記は全てに同じ値を入れている
+// 下記に、中身を全てコンソール表示するfor 文を作成
+    for (let i = 0; i < nijiArry1.length; i++) {
+      for (let j = 0; j < nijiArry1.length; j++) {
+        console.log(nijiArry1[i][j], "二次元配列なら2重ループ");
+      }
+    }
+
+  </script>
+</body>
+</html>
