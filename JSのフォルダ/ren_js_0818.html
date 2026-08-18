@@ -37,52 +37,109 @@
 
     </script>
     <script>
-      //            0               1                2            3
-      const mark = ["スペード（♠）", "ハート（♥）", "ダイヤ（♦）", "クラブ（♣）"];
-const amari2 = Math.random() * 53;
-console.log(amari2)
-    for (i=0; i < 53; i++) {
-        const random52 =Math.random() * 53 ;
+      //            0               1                2            3              4 0番目の時でずれるのが難しい0はエラーテキスト保持
+      const mark = ["0のためエラー","スペード（♠）", "ハート（♥）", "ダイヤ（♦）", "クラブ（♣）"];
 
-        const toranpRandom = Math.round(random52/13);
+      const random52 =Math.random() * 53 ;
 
-const amari = Math.round(random52/13);
+      const toranpRandom = Math.floor(random52)%13;
+      console.log(toranpRandom)
+      console.log("ad",random52/13)
 
-            switch (true) {
-              case (toranpRandom === 0):
-                console.log(mark[0], toranpRandom);
-                if (amari <= 13 ) {
-                  console.log("スペードでカードの番号は", amari);
-                }
-                break;
+      switch (true) {
+        case (toranpRandom === 1):
+          console.log(toranpRandom + "はA（エース）");
+
+          for (i = 0; i < 4; i++) {
+            const markNum = Math.floor(random52/13)+1;
+            if (i === 1) {
+              console.log("カードマークは",mark[1])
+            }
+          }
+          break;
+        case (toranpRandom === 2):
+            console.log(toranpRandom + "は2（デュース）");
+            break;
+        case (toranpRandom === 3):
+            console.log(toranpRandom + "は 3（トレイ）")
+            break;
+        case (toranpRandom === 4):
+            console.log(toranpRandom +"は4（ケイト）")
+            break;
+        case (toranpRandom === 5):
+            console.log(toranpRandom +"は5（シンク）")
+            break;
+        case (toranpRandom === 6):
+            console.log(toranpRandom +"は6（サイス）")
+            break;
+        case (toranpRandom === 7):
+            console.log(toranpRandom +"は7（セブン）")
+            break;
+        case (toranpRandom === 8):
+            console.log(toranpRandom +"は8（エイト）")
+            break;
+        case (toranpRandom === 9):
+            console.log(toranpRandom +"は9（ナイン）")
+            break;
+        case (toranpRandom === 10):
+            console.log(toranpRandom +"は10（テン）")
+            break;
+        case (toranpRandom === 11):
+            console.log(toranpRandom + "はJ（ジャック)")
+            break;
+        case (toranpRandom === 12):
+            console.log(toranpRandom +"はQ（クイーン)")
+            break;
+        case (toranpRandom === 13):
+            console.log(toranpRandom +"はK（キング)")
+            break;
+        default:
+          console.log(`${toranpRandom}番のカード番号はありません`)
+          break;
+      }
+
+//     for (i=0; i < 53; i++) {
+//         const random52 =Math.random() * 53 ;
+
+//         const toranpRandom = Math.round(random52/13);
+
+// const amari = Math.round(random52/13);
+
+//             switch (true) {
+//               case (toranpRandom === 0):
+//                 console.log(mark[0], toranpRandom);
+//                 if (amari <= 13 ) {
+//                   console.log("スペードでカードの番号は", amari);
+//                 }
+//                 break;
                 
-              case (toranpRandom === 1):
-                console.log(mark[1], toranpRandom);
-                if (amari >= 14 && amari <= 26) {
-                  console.log("ハートでカードの番号は", amari)
-                }
-                break;
+//               case (toranpRandom === 1):
+//                 console.log(mark[1], toranpRandom);
+//                 if (amari >= 14 && amari <= 26) {
+//                   console.log("ハートでカードの番号は", amari)
+//                 }
+//                 break;
                 
-              case (toranpRandom === 2):
-                console.log(mark[2], toranpRandom);
-                if (amari >= 27 && amari <= 39) {
-                  console.log("クラブでカードの番号は", amari)
-                }
-                break;
+//               case (toranpRandom === 2):
+//                 console.log(mark[2], toranpRandom);
+//                 if (amari >= 27 && amari <= 39) {
+//                   console.log("クラブでカードの番号は", amari)
+//                 }
+//                 break;
                 
-              case (toranpRandom === 3):
-                console.log(mark[3], toranpRandom);
-              case (toranpRandom === 4):
-                if (amari >= 40 && amari <= 52) {
-                  console.log("ダイヤでカードの番号は", amari)
-                }
-                break;
-              default:
-                console.log("それ以外のためエラー", toranpRandom);
-                break;
-        }
+//               case (toranpRandom === 3):
+//                 console.log(mark[3], toranpRandom);
+//               case (toranpRandom === 4):
+//                 if (amari >= 40 && amari <= 52) {
+//                   console.log("ダイヤでカードの番号は", amari)
+//                 }
+//                 break;
+//               default:
+//                 console.log("それ以外のためエラー", toranpRandom);
+//                 break;
+//         }
         
-    }
+//     }
 
 //     switch (true) {
 //       case (toranpRandom <= 13):
@@ -103,5 +160,17 @@ const amari = Math.round(random52/13);
 //         break;
 // }
     </script>
+    <!-- 
+    1: A（エース）
+    2: 2（デュース）
+    3: 3（トレイ）
+    4: 4（ケイト）5: 5（シンク）
+    6: 6（サイス）7: 7（セブン）
+    8: 8（エイト）
+    9: 9（ナイン）10: 10（テン）
+    11: J（ジャック / 兵士・従者）
+    12: Q（クイーン / 女王）
+    13: K（キング / 王様
+    -->
 </body>
 </html>
