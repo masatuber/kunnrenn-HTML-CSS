@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>おみくじの練習</title>
+  <title>おみくじ、カード1枚引いた時の練習</title>
 </head>
 <body>
     <script>
@@ -37,64 +37,74 @@
 
     </script>
     <script>
-      //            0               1                2            3              4 0番目の時でずれるのが難しい0はエラーテキスト保持
-      const mark = ["0のためエラー","スペード（♠）", "ハート（♥）", "ダイヤ（♦）", "クラブ（♣）"];
+      //            0               1                2            3           0番目の時でずれるのが難しい0はエラーテキスト保持
+      const mark = ["スペード（♠）", "ハート（♥）", "クラブ（♣）","ダイヤ（♦）"];
 
-      const random52 =Math.random() * 53 ;
+      const random52 =Math.random() * 52 ; // 0から52の乱数つまり53個
+      const random52kasan = random52 +1; // 1を加算し1から52個
+      const toranpRandom = Math.floor(random52 % 13) +1; // 1枚引いた時のカード番号
+// 計算結果確認用========
+      console.log("処理前ランダム値"+random52);
+      console.log("1枚引いた時のカード番号"+toranpRandom);
+      console.log("商、カードマーク判定",Math.floor((random52kasan -1) /13) );
+// 計算結果確認用=======
+      const markNum = Math.floor((random52kasan -1) /13); // カードマーク判定用で配列0から3まで対応させる
 
-      const toranpRandom = Math.floor(random52)%13;
-      console.log(toranpRandom)
-      console.log("ad",random52/13)
-
-      switch (true) {
-        case (toranpRandom === 1):
+      switch (toranpRandom) {
+        case 1:
           console.log(toranpRandom + "はA（エース）");
-
-          for (i = 0; i < 4; i++) {
-            const markNum = Math.floor(random52/13)+1;
-            if (i === 1) {
-              console.log("カードマークは",mark[1])
-            }
-          }
+          console.log("カードマークは",mark[markNum]);
           break;
-        case (toranpRandom === 2):
+        case 2:
             console.log(toranpRandom + "は2（デュース）");
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 3):
+        case 3:
             console.log(toranpRandom + "は 3（トレイ）")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 4):
+        case 4:
             console.log(toranpRandom +"は4（ケイト）")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 5):
+        case 5:
             console.log(toranpRandom +"は5（シンク）")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 6):
+        case 6:
             console.log(toranpRandom +"は6（サイス）")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 7):
+        case 7:
             console.log(toranpRandom +"は7（セブン）")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 8):
+        case 8:
             console.log(toranpRandom +"は8（エイト）")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 9):
+        case 9:
             console.log(toranpRandom +"は9（ナイン）")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 10):
+        case 10:
             console.log(toranpRandom +"は10（テン）")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 11):
+        case 11:
             console.log(toranpRandom + "はJ（ジャック)")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 12):
+        case 12:
             console.log(toranpRandom +"はQ（クイーン)")
+            console.log("カードマークは",mark[markNum]);
             break;
-        case (toranpRandom === 13):
-            console.log(toranpRandom +"はK（キング)")
-            break;
+        case 13:
+          console.log(toranpRandom +"はK（キング)")
+          console.log("カードマークは",mark[markNum]);
+          break;
         default:
-          console.log(`${toranpRandom}番のカード番号はありません`)
+          console.log(`${toranpRandom}番のカード番号はありません,1から13以外`)
           break;
       }
 
