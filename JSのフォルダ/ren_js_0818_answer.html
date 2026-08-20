@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ、カード1枚引いた時の練習（回答）</title>
+</head>
+<body>
+    <script>
+    let card = Math.floor(Math.random()*52);
+    let mark, num;
+    switch(Math.floor(card/13)) {
+      case 0:
+        mark = "スペード";
+        break;
+      case 1:
+        mark = "ハート";
+        break;
+      case 2:
+        mark = "クラブ";
+      case 3:
+        mark = "ダイヤ";
+        break;
+
+    }
+    card++;
+      num = card % 13;
+      if (num == 0) {
+        num=13;
+      }
+      console.log(mark+"の"+num);
+
+    </script>
+
+</body>
+</html>

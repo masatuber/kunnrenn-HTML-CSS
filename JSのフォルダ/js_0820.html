@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>htmlからJSで値を受取る</title>
+</head>
+<body>
+  <h1>見出し</h1>
+  <section id="col1">
+    <h2>中見出し1</h2>
+    <p>テキスト</p>
+    <p class="text">テキスト</p>
+  </section>
+  <section id="col2">
+    <h2>中見出し2</h2>
+    <p>テキスト</p>
+    <p class="text">テキスト</p>
+  </section>
+  <script>
+// idの取得
+/* ===================================================
+    要素取得時の定数名の名づけルールは会社で統一しているケースが多い
+    定数名については、今回は原則html側に沿った形として行く
+    定数名については、今回は変数をこれまでキャメルケースにしていたので
+    定数名はパスカルケース（全ての単語の頭文字を大文字）とする
+    見てすぐわかるように、変数と定数で違うルールを採用するのが一般的
+    list-styleを例とした場合
+    ListStyleと2つ目以降の単語の頭文字を大文字にするパスカルケース（アッパーキャメルケース）
+    list_styleと単語を_（アンダースコア）でつなぐスネークケース
+    cssで使用している-（ハイフン）はjavascriptでは使えないが
+    ハイフンでつなぐ方式はケバブケースという
+    ケース名はないが、大文字で書くパターンも使われる。
+============================================================ */
+    const Col1 = document.getElementById("col1");
+    const Col2 = document.getElementById("col2");
+    console.log(Col1,"Col1");
+    console.log(Col2, "Col2");
+// タグに設定されている文字やstyleを含むjavascriptで操作出来る全てが取得されている。
+
+// タグ名での取得
+    const Head1 = document.getElementsByTagName("h1");
+    const Head2 = document.getElementsByTagName("h2");
+    const Col1Haed2 = Col1.getElementsByTagName("h2");
+    const Para = document.getElementsByTagName("p");
+    console.log(Head1);
+    console.log(Head2);
+    console.log(Col1Haed2);
+    console.log(Para);
+// 1つしかないHead1や場所を限定したCol1Haed2もHTMLコレクションでの取得となっている
+
+// クラス名で取得
+    const Text = document.getElementsByClassName("text");
+    console.log(Text); // タグ取得同様htmlコレクションでの取得となる。
+  </script>
+</body>
+</html>
