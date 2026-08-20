@@ -43,15 +43,43 @@
     const Head2 = document.getElementsByTagName("h2");
     const Col1Haed2 = Col1.getElementsByTagName("h2");
     const Para = document.getElementsByTagName("p");
-    console.log(Head1);
-    console.log(Head2);
-    console.log(Col1Haed2);
-    console.log(Para);
+    console.log("Head1は",Head1);
+    console.log("Head2は",Head2);
+    console.log("Col1Haed2は",Col1Haed2);
+    console.log("Paraは".Para);
 // 1つしかないHead1や場所を限定したCol1Haed2もHTMLコレクションでの取得となっている
 
 // クラス名で取得
     const Text = document.getElementsByClassName("text");
-    console.log(Text); // タグ取得同様htmlコレクションでの取得となる。
+    console.log("クラス名取得",Text); // タグ取得同様htmlコレクションでの取得となる。
+
+// id で取得したものにstyleを指定
+    Col1.style.backgroundColor = "yellow";
+    Col2.style.background = "rgb(255 0 0/05)";
+// cssで使用出来た一括指定はjavaScript でも使用可能
+
+// htmlコレクションで取得したものにスタイルを指定
+  // Head1.style.color="blue";
+  // HTMLコレクションで取得すると取得が1個でも配列型の記入しなければならない
+  // そのため、この書き方ではエラーとなる
+  Head1[0].style.color="blue";
+
+  // プロパティ名を間違った場合は
+  Head1[0].style.calor = "red";
+/* =================================
+上記はcolorをcalorと存在しないプロパティ名に間違っているエラーにならない
+これはJavaScript的にはcalorというプロパティを新設して値を設定したという
+命令になっており、なんの変化も起きないが命令は成立となる
+これは「JavaScript」は「cssに新しいプロパティが新設されても問題なく動く」ように
+あくまでもhtmlのタグにスタイル属性を書いているだけで中身は関知していない形で
+適用されているためです
+======================================= */
+
+// class 名textがついたもの全ての文字を太字にする、こういうすべてにの場合はfor文で行うのが一般的
+    for (let i = 0; i < Text.length; i++) {
+      Text[i].style.fontWeight = "bold";
+    }  // for文の記述は配列操作と同じで作成可能。
+
   </script>
 </body>
 </html>
