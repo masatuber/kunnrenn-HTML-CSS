@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>innerHTMLやDOM取得</title>
+</head>
+<body>
+  <h1>見出し</h1>
+  <section id="col1">
+    <p>テキスト</p>
+  </section>
+  <ul>
+    <li>リスト1</li>
+    <li>リスト2</li>
+  </ul>
+
+  <script>
+    /* タグの取得 */
+    const Head1 = document.querySelectorAll("h1");
+    const UList = document.querySelectorAll("ul");
+    /*idの取得 */
+    const Col1 = document.querySelector("#col1"); // id は#  class は.とcssと同じ指定方法
+// 取得したid:col1の中の段落を取得
+    const Col1Para = Col1.querySelectorAll("p");
+// 比較のために、ulをgetElementsでも取得
+    const GetUList = document.getElementsByTagName("ul");
+//  取得したDOMの出力
+    console.log(Head1);
+    console.log(UList);
+    console.log(Col1);
+    console.log(Col1Para);
+    console.log(GetUList); // HTMLコレクション
+// h1の文字色をredに変更
+    Head1[0].style.color= "red";
+// 操作の仕方、getElementsByTagNameとquerySelectorAllと同じになる
+
+// p タグの文章の最後に「追加文」と追加していく
+// innerHTMLで一度現在の文章を取得し、文字列連結後にinnerHTMLで変更する
+  let text = Col1Para[0].innerHTML;
+  text += "追加文"; // 文字列連結
+  Col1Para[0].innerHTML = text; // 変更する Allで取ったりしてるから配列の何番目をつけ忘れないこと
+
+// ulの中身を取得してコンソール表示
+// querySelectorAllで取得した場合は？
+    let qText = UList[0].innerHTML;
+    console.log(qText, "innerHTMLだよ");
+// getElementsByTagNameで取得した場合
+
+    let gText = GetUList[0].innerHTML;
+    console.log(gText, "innerHTMLだよ");
+  // 上記2つは同じ結果になる
+
+    let conText =UList[0].textContent;
+    console.log(conText, "textContentだよ");
+// textContentで取得するとタグは取得できない
+  </script>
+</body>
+</html>
