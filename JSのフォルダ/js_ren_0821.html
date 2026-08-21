@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カレンダーを表示したい</title>
+</head>
+<body>
+  <table>
+    <tr>1</tr>
+  </table>
+  <script>
+    const tableTr = document.querySelectorAll("table");
+    let getTr = tableTr[0].innerHTML;
+
+    for (let i = 0; i < 6; i++) {
+      getTr += "<tr>1</tr>";
+      
+
+      console.log(getTr);
+      // for (let j = 0; i < 7; i++) {
+      //   getTr += ;
+      // }
+      tableTr[0].innerHTML = getTr
+    }
+    
+    
+
+  </script>
+</body>
+</html>

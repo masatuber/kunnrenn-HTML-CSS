@@ -54,6 +54,23 @@
     let conText =UList[0].textContent;
     console.log(conText, "textContentだよ");
 // textContentで取得するとタグは取得できない
+
+/* 
+  動的と静的の違いを確認
+  liをgetElementsとquerySelectorで先に取得
+  次にulのinnerHTMLでliを一つ追加
+  追加後にliを取得した2種類の方法を両方コンソール表示で確認
+*/
+    const GetLi = document.getElementsByTagName("li");
+    const QLi = document.querySelectorAll("li");
+    gText += "<li>追加リスト</li>";
+    GetUList[0].innerHTML = gText; // リスト1つ追加完了
+    console.log(GetLi);
+    console.log(QLi);
+/* ============================================================================
+    動的取得のgetElement系での取得では、取得後にタグの数が増えても自動的に取得している,毎回取り直す
+    静的取得のquerySelector系での取得は、取得後の追加は取得出来ず、取得時のままとなる。
+============================================================================ */
   </script>
 </body>
 </html>
