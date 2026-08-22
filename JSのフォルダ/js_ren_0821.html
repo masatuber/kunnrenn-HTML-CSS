@@ -6,25 +6,16 @@
   <title>カレンダーを表示したい</title>
 </head>
 <body>
-  <table>
-    <tr>1</tr>
+  <table id="table1">
+    
   </table>
   <script>
-    const tableTr = document.querySelectorAll("table");
-    let getTr = tableTr[0].innerHTML;
+    const tableId = document.getElementById("table1");
+    console.log( tableId);
 
-    for (let i = 0; i < 6; i++) {
-      getTr += "<tr>1</tr>";
-      
-
-      console.log(getTr);
-      // for (let j = 0; i < 7; i++) {
-      //   getTr += ;
-      // }
-      tableTr[0].innerHTML = getTr
+    for (let i = 1; i <= 31; i++) {
+    tableId.innerHTML += `<tr>${i}</tr>`;
     }
-    
-    
 
   </script>
 </body>
