@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カレンダーを表示したい</title>
+</head>
+<body>
+  <h1>Today is</h1>
+  <div id="calendar"></div>
+  <script>
+    const weeks = ['日', '月', '火', '水', '木', '金', '土'];
+
+    const date = new Date();
+
+    const year = date.getFullYear();
+
+    const month = date.getMonth() +1;
+
+    const today = date.getDate();
+
+    const startDate = new Date(year, month -1 ,1);
+
+    const endDate = new Date(year, month, 0);
+
+    const endDayCount = endDate.getDate();
+
+    const startDay = startDate.getDay();
+
+    let dayCount = 1; // 日にちのカウント 何日から始めるかを決める
+
+    let calendarHTML = "";  // HTMLを組立てる変数
+    calendarHTML += "<h1>" + year + "年" + month + "月" + today + "日" + "</h1>";
+    calendarHTML += "<table>";
+    
+    // 曜日の行を作成する
+  </script>
+</body>
+</html>
