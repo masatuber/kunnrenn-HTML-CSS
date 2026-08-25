@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>８月カレンダー</title>
+  </head>
+  <body>
+    <h1>カレンダー</h1>
+    <table></table>
+    <script>
+      const CareTbl=document.getElementsByTagName("table");
+//１日が土曜スタートなので、その週の日曜は前の月となる
+//前の月は表示しないので、0、-1と下げていき、0以下は表示しないようにする
+
+//0（日曜）～6（土曜）で設定して1から曜日の数字を引くことで、
+//1週目の日曜の日を算出
+      let days=6;//曜日
+      let day=1-days;//日
+
+//captionと曜日の行を先に変数に入れ、この変数にカレンダーのセルを追加する
+      let carender="<caption>8月</caption><tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>";
+
+      while(day<=31){//表示するのは31日を表示する週まで whileは万年カレンダーでも対応させたいから
+        carender+="<tr>";
+        for(let i=0;i<7;i++){//１週間は７日
+          if(day<1 || day>31){//1日より前と31日より後は半角スペース
+            carender+="<td>&nbsp;</td>"; //中身あった方が良いよねという時の半角スペース入れる
+          }
+          else{//1～31日は日を表示
+            carender+="<td>"+day+"</td>";
+          }
+          day++;
+        }
+        carender+="</tr>";
+      }
+      CareTbl[0].innerHTML=carender;
+// 1か月は4-6週のどれか表示する月の末日まで表示したら次の週は不要
+// 万年カレンダーは1日の曜日、その月の末日 を計算や配列を使用して求めることで作成できる
+    </script>
+  </body>
+</html>

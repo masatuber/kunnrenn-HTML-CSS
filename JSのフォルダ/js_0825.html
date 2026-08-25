@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>要素の追加insertAdjacentHTMについて</title>
+</head>
+<body>
+  <p>リスト</p>
+  <ul>
+    <li>リスト1</li>
+    <li>リスト2</li>
+  </ul>
+  <p>リスト後</p>
+  <script>
+    const Ulist = document.getElementsByTagName("ul")[0]; // 最初から固定したい、h1はよくするとのこと
+    const docLi = document.getElementsByTagName("li");
+    const selLi = document.querySelectorAll("li");
+    console.log("docLi変数",docLi);
+    console.log("selLi変数",selLi);
+// この段階では、変化を起こしていないので、どちらでも取得しても2個の取得となっている
+
+// ulの前に挿入したい
+    Ulist.insertAdjacentHTML("beforebegin", "<p>リスト前</p>");
+// fierfoxのインスペクタータブでは、javaScript で変更された内容のHTMLが確認できる
+
+// ulの開始タグの後ろに挿入
+  Ulist.insertAdjacentHTML("afterbegin", "<li>リスト先頭</li>");
+
+// ul の閉じタグの前に挿入
+  Ulist.insertAdjacentHTML("beforeend", "<li>リスト最後</li>");
+
+// ul の後ろに挿入
+    Ulist.insertAdjacentHTML("afterend", "<p>リスト後</p>");
+
+    console.log("docLi変数",docLi);
+    console.log("selLi変数",selLi);
+/*
+  動的取得のdocLiは追加になった分を含め4個取得
+  静的取得のselLiは取得時のまま2個取得
+  この後の処理でstyleを指定した場合も取得したものにのみ有効な命令となるため
+  静的取得の場合追加された2個のリストにはきかなくなっている
+*/
+
+// docLiを使用して文字色を赤に指定する
+    for (let i = 0; i < docLi.length; i++) {
+      docLi[i].style.color = "red";
+    }
+/* 
+  複数個取得した要素全てに同じスタイルを適用するときは
+  for 文で0から.lengthまでのループ処理で実行する
+*/
+
+// selLi を使用して背景色を黄色に指定する
+    for (let i = 0; i < selLi.length; i++) {
+      selLi[i].style.backgroundColor = "yellow";
+    }
+// 追加された2つのリストには適用されない
+
+/*
+  静的取得で動的変化にはそのままでは対応できない 
+  取得タイミングを動的変化の後に行うか、動的変化後に再取得が必要になる
+*/
+
+// insertAdjacentHTML の場所の指定を配列で用意して行うケースもある
+    let insArr = [
+      "beforebegin",
+      "afterbegin",
+      "beforeend",
+      "afterend"
+    ];
+
+/*
+  上記の配列を用意しておくとinsertAdjacentHTML の場所指定が
+  insArr[] と書いて、上から順に0～3としておくとミスが減る
+  Ulist.insertAdjacentHTML(insArr[0], "<p>リスト前</p>");
+  のように指定していく
+*/
+  </script>
+</body>
+</html>
