@@ -12,50 +12,52 @@
     const weeks = ['日', '月', '火', '水', '木', '金', '土'];
 
     const date = new Date();
-
+    console.log("date変数", date);
     const year = date.getFullYear();
-
+    console.log("year変数", year);
     const month = date.getMonth() +1;
-
+    console.log("month変数", month);
     const today = date.getDate();
-
+    console.log("today変数", today);
     const startDate = new Date(year, month -1 ,1);
-
+    console.log("startDate変数", startDate);
     const endDate = new Date(year, month, 0);
-
+    console.log("endDate変数", endDate);
     const endDayCount = endDate.getDate();
-
+    console.log("endDayCount変数", endDayCount);
     const startDay = startDate.getDay();
-
+    console.log("startDay変数", startDay);
     let dayCount = 1; // 日にちのカウント 何日から始めるかを決める
-
+    console.log("dayCount変数", dayCount);
     let calendarHTML = "";  // HTMLを組立てる変数
     calendarHTML += "<h1>" + year + "年" + month + "月" + today + "日" + "</h1>";
     calendarHTML += "<table>";
-    
-    // 曜日の行を作成する
-    for (let i = 0; i < weeks.length; i++) {
-      calendarHTML += "<td>" + weeks[i] + "</td>";
-    }
-    for (let w =0; w < 6; w++) {
-      calendarHTML += "<tr>";
-        for (d = 0; d < 7; d++) {
-          if (w == 0 && d < startDay) {
-            calendarHTML += "<td></td>";
-          } else if (dayCount > endDayCount) {
-            calendarHTML += "<td></td>";
-          } else if (dayCount === today) {
-            calendarHTML += "<td class='today'>" + dayCount + "</td>";
-            dayCount++;
-          } else {
-            calendarHTML += "<td>" + dayCount + "</td>";
-            dayCount++;
+      
+      // 曜日の行を作成する
+      for (let i = 0; i < weeks.length; i++) {
+        calendarHTML += "<td>" + weeks[i] + "</td>";
+      }
+      for (let w =0; w < 6; w++) {
+        calendarHTML += "<tr>";
+          for (d = 0; d < 7; d++) {
+            if (w == 0 && d < startDay) {
+              calendarHTML += "<td></td>";
+            } else if (dayCount > endDayCount) {
+              calendarHTML += "<td></td>";
+            } else if (dayCount === today) {
+              calendarHTML += "<td class='today'>" + dayCount + "</td>";
+              dayCount++;
+            } else {
+              calendarHTML += "<td>" + dayCount + "</td>";
+              dayCount++;
+            }
           }
+          calendarHTML += "</tr>";
         }
-        calendarHTML += "</tr>";
-    }
-    calendarHTML += "</table>";
-    document.querySelector("#calendar").innerHTML = calendarHTML;
+        calendarHTML += "</table>";
+        console.log("calendarHTMLは移動させて確認",calendarHTML);
+        document.querySelector("#calendar").innerHTML = calendarHTML;
+        console.log("querySelectorの中身",document.querySelector("#calendar"))
   </script>
 </body>
 </html>
