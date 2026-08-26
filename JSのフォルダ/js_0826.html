@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>見出し</h1>
+  <ul>
+    <li><img src="../img/IMG_0429.JPG" alt="カピバラ"></li>
+    <li><img src="../img/ポートフォリオコード例.png" alt="ポートフォリオの写真"></li>
+  </ul>
+  <p>テキスト</p>
+  <p>テキスト</p>
+  <p>テキスト</p>
+  <p>テキスト</p>
+  <p>テキスト</p>
+  <ul>
+    <li><a href="https://www.yahoo.co.jp/">Yahoo!</a></li>
+    <li><a href="https://www.google.com/?hl=ja">Google</a></li>
+  </ul>
+  <script>
+    const Image = document.getElementsByTagName("img");
+/* =================================================================
+  1枚目の画像を変更
+  .src=の形で実行
+================================================================= */
+// 写真を変えたときは写真によってはaltの変更も必要になる
+    Image[0].src="../img/SBSA5474.JPEG";
+    Image[0].alt="サムネイル";
+
+// 2枚目の写真をsetAttributeで変更
+    Image[1].setAttribute("src", "../img/backgroundimage.jpg");
+    Image[1].alt="バックグラウンド背景";
+/* =================================================================
+  画像変更の際、javascriptでは相対パスは文字列扱いとなり入力支援がない
+  ファイル一覧から使う写真のファイルを→クリックして相対パスのコピーが出来る
+  ただしパスのURLがバックスラッシュになっているのでスラッシュに修正する
+================================================================= */
+
+    const Head1 = document.getElementsByTagName("h1");
+// 今回初期状態でid属性がなかったので追加処理が行われた、idがｈ1に付与される
+    Head1[0].setAttribute("id","見出し追加");
+/* =================================================================
+  入力フォームでパスワード入力欄の入力を隠さずに表示するモードにする時は
+  type属性をpasswordからtextに変更する
+================================================================= */
+/* =================================================================
+  Yahoo!のリンクを札幌市のサイトへ変更
+  この場合、href属性の変更に加え、innerHTMLでリンクをかけている文字を変更する
+================================================================= */
+    const Anker = document.getElementsByTagName("a");
+    Anker[0].href = "https://www.city.sapporo.jp/";
+    Anker[0].innerHTML = "札幌市";
+
+/* =================================================================
+  h1 に追加したid属性をプログラムから確認する
+  hasAttribute で存在確認後 getAttribute で値を取得してコンソール表示
+  表示後にremoveAttribute で削除する
+================================================================= */
+
+// Head1[0] にid属性が存在したら処理を実行
+    if (Head1[0].hasAttribute("id")) { 
+// di属性値をコンソール表示
+      console.log(Head1[0].getAttribute("id"));
+// id属性を削除
+      Head1[0].removeAttribute("id"); 
+    }
+// クラスなど=================================================================
+// class 操作
+
+    const Para = document.getElementsByTagName("p");
+
+// pの0番目にclass 「text1」 「text2」と2つ追加する
+    Para[0].classList.add("text1");
+    Para[0].classList.add("text2");
+
+// pの0番目のクラスを変数で取得しコンソール表示
+    let paraClass = Para[0].className;
+    console.log(paraClass);
+/* =================================================================
+  2つの値が半角スペース区切りで取得されている
+  このままでは扱いが難しいので、配列系に変換する
+================================================================= */
+    let paraClassArr = paraClass.split(" ");
+    console.log(paraClassArr);
+
+/* =================================================================
+pタグすべてにclass「text3」を追加する
+Para[0]はこれで3つのクラス値を待つ
+================================================================= */
+    for (let i = 0; i < Para.length; i++) {
+      Para[i].classList.add("text3");
+    }
+
+/* =================================================================
+toggle の動きを確認する
+Para[1]にclass 「text4」を toggle でつけ外しする
+2回toggleを行い、1回ごとにclassNameをコンソール出力する
+================================================================= */
+
+// 下記コンソールでは「text3 text4」とtext4が追加されている
+    Para[1].classList.toggle("text4");
+    console.log(Para[1].className);
+
+// 下記のコンソールでは「text3」とtext4が削除されている
+    Para[1].classList.toggle("text4");
+    console.log(Para[1].className);
+// contains でクラス属性をtext3が存在しているかを確認し
+// 存在していたら削除を行う/ text3存在が存在していたらtrue処理を実行
+    if(Para[2].classList.contains("text3")) {
+// テキスト3を削除
+      Para[2].classList.remove("text3");
+    }
+/* =================================================================
+toggleは存在してたら削除。存在していなかったら追加
+containsとremoveでは存在してたら削除、存在してなかった時は何もしない
+================================================================= */
+/* =================================================================
+replaceで変更を行うときは、削除同様contains で確認することが多い
+また、containsでfalseになった時の処理がある場合も多い（追加するなど）
+Para[3]のクラスにtext3があればtext1に変更する
+================================================================= */
+    if (Para[3].classList.contains("text3")) {
+/* class 属性値の変更は、何を変更するかが必要になるため
+("変更前", "変更後")と指定する */ 
+      Para[3].classList.replace("text3", "text1");
+
+    }
+// text3が存在しない時に追加する場合はelseでadd命令を実行する
+
+  </script>
+</body>
+</html>
