@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イベント</title>
+</head>
+<body>
+    <h1>見出し</h1>
+    <p>テキスト</p>
+    <p>テキスト</p>
+    <ul>
+        <li>リスト1</li>
+        <li>リスト2</li>
+        <li>リスト3</li>
+        <script>
+            function disp() {
+                console.log("関数実行");
+            }
+            function add(x, y)  {
+                return x+y;
+            }
+            disp();  // disp関数実行,関数は呼び出されて初めて実行される
+            add(1,2); 
+/* add 関数に引数として1と2を渡して呼び出し ==================================================
+    上記の形では return; を変数に代入してないが、関数処理自体はエラーがないのでエラー表示はない */
+
+            add();
+/*  ===============================================================================
+上記の形は引数を渡していない・　関数の処理は+演算子での演算のため、ｘとｙは値が渡されずに
+undefined値ではあるが+演算子であればエラーにならない
+このように、関数の呼び出しやreturnの受け取りを間違ってもエラーにならないことが多いので注意
+=============================================================================== */
+            let result = add(1, 2);  /// add関数に引数を渡し、returnされたものをresultに代入
+            console.log(result);
+// 上記が正しい関数の呼び出しです
+
+// 実行されたらh1 の文字が赤くなる関数
+// ｈ1をクリックされたらとする場合、関数外h1を取得する必要がある
+        const Head1 = document.getElementsByTagName("h1");
+        function change() {
+            Head1[0].style.color = "red";
+        } // 下記は確認だけでコメントアウト
+    //    Head1[0].onclick = change;
+        Head1[0].addEventListener("click", change, false);
+// addEventListenerで3つ目falseの時は省略可能
+
+/* ==============================================================================
+    段落に対し、クリックされたら背景色は黄色に変更
+    1つ目を.onclick,2つ目をaddEventListenerで作成
+    どちらも無名関数で作成する
+============================================================================== */
+        const Para = document.getElementsByTagName("p");
+        Para[0].onclick = function () {
+            Para[0].style.backgroundColor = "yellow";
+        };
+        Para[1].addEventListener("click", function() {
+            Para[1].style.backgroundColor = "yellow";
+        });
+/* ==============================================================================
+    liの1つ目をクリックしたらそのliの文字サイズが2remに
+    更にulの背景色をrgb(255 0 0/0.5);にする
+    このulの変更をulのクリックで実行する
+    この場合、addEventListenerでliとulのclickで作成
+============================================================================== */
+
+// ↓ulをタグネームで取得
+        const Ulist = document.getElementsByTagName("ul");
+// ↓ liでタグネームより取得する
+        const Litem = document.getElementsByTagName("li");
+
+// エレメントの取得のaddEventListenerを登録する
+        Ulist[0].addEventListener("click", function() {
+// 背景色を変更する
+            Ulist[0].style.backgroundColor = "rgb(255 0 0/0.5)";
+        });
+
+// liにaddEventListenerを登録する
+        Litem[0].addEventListener("click", function() {
+// フォントサイズの変更
+            Litem[0].style.fontSize = "2rem";
+        });
+
+// サイト上で右クリックしたもメニューが出ないようにする
+        window.oncontextmenu = function() {
+            alert("右クリックは禁止です")
+            return false;
+        };
+/*  ==============================================================================
+右クリック禁止はwindowで行うことで、ブラウザ全体に適用される
+documentやHTML, bodyなどで行うとブラウザにより、全体になってしまうブラウザや
+サイト下部のhtml表示終わった後の余白では右クリックが有効になってしまうブラウザがある
+============================================================================== */
+
+        </script>
+    </ul>
+</body>
+</html>
