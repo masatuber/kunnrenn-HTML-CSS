@@ -31,19 +31,19 @@
 undefined値ではあるが+演算子であればエラーにならない
 このように、関数の呼び出しやreturnの受け取りを間違ってもエラーにならないことが多いので注意
 =============================================================================== */
-            let result = add(1, 2);  /// add関数に引数を渡し、returnされたものをresultに代入
+            let result = add(1, 2); // add関数に引数を渡し、returnされたものをresultに代入正しい関数の呼び出しです
             console.log(result);
-// 上記が正しい関数の呼び出しです
-
-// 実行されたらh1 の文字が赤くなる関数
-// ｈ1をクリックされたらとする場合、関数外h1を取得する必要がある
+/* ==============================================================================
+実行されたらh1 の文字が赤くなる関数
+ｈ1をクリックされたらとする場合に関数外h1を取得する必要がある
+============================================================================== */
         const Head1 = document.getElementsByTagName("h1");
         function change() {
             Head1[0].style.color = "red";
-        } // 下記は確認だけでコメントアウト
-    //    Head1[0].onclick = change;
-        Head1[0].addEventListener("click", change, false);
-// addEventListenerで3つ目falseの時は省略可能
+        } 
+    //    Head1[0].onclick = change; // 確認だけでコメントアウト
+
+        Head1[0].addEventListener("click", change, false); // addEventListenerで3つ目falseの時は省略可能
 
 /* ==============================================================================
     段落に対し、クリックされたら背景色は黄色に変更
@@ -81,7 +81,7 @@ undefined値ではあるが+演算子であればエラーにならない
             Litem[0].style.fontSize = "2rem";
         });
 
-// サイト上で右クリックしたもメニューが出ないようにする
+// サイト上で右クリックしたもメニューが出ないようにする実装
         window.oncontextmenu = function() {
             alert("右クリックは禁止です")
             return false;
