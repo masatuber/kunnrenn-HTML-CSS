@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マウスなどのイベント</title>
+</head>
+<body>
+    <h1>見出し1</h1>
+    <p>テキスト</p>
+    <p>テキスト</p>
+    <p>テキスト</p>
+    <ul>
+        <li><img src="../img/backgroundimage.jpg" alt="コンテンツ"></li>
+        <li><img src="../img/ポートフォリオコード例.png" alt="ポートフォリオ"></li>
+    </ul>
+<!-- サーバーに送信しないフォーム部品はformタグ不要 -->
+    <p>
+        苗字<input type="text" id="l_name">
+        名前<input type="text" id="f_name">
+    </p>
+    <p>
+        ボタン<input type="button" value="click" id="btn">
+    </p>
+    <p id="result"></p>
+    <script>
+        const Head1 = document.getElementsByTagName("h1");
+        const  Para  = document.getElementsByTagName("p");
+// thisを使用してクリックされた要素の文字を赤くする関数を用意する
+        function chage() {
+            this.style.color = "red";
+        }
+        Head1[0].addEventListener("click", chage); // h1にイベント登録する
+// for 文を使用してすべての段落タグにクリックイベントを作成
+        for (let i = 0; i < Para.length; i++) {
+            Para[i].addEventListener("click", chage);
+        }
+/* ==========================================================================
+    for文を実行すると、段落の個数分のaddEventListenerが作成される
+    イベントを作るfor文は基本読み込み時か、window.onload 時に実行する
+    写真などが表示された後のイベントを作成する時はwindow.onload時のほうが望ましい
+========================================================================== */
+
+        const Image = document.getElementsByTagName("img");
+/* ========================================================================== 
+    スクロール発生した位置にある画像をクリックした時の
+    各種座標を取得いてコンソールに出力していく
+==========================================================================  */
+
+        window.addEventListener("load", function() {
+            Image[1].addEventListener("click", function(e) {
+                console.log("スクリーン横" + e.screenX + "縦" + e.screenY); // pc画面の座標
+                console.log("ウィンドウ横" + e.clientX + "縦" + e.clientY); // ブラウザの座標
+                console.log("ドキュメント横" + e.pageX + "縦" + e.pageY); // html全体の座標
+
+/* ==========================================================================
+    スクロールがない場合、clientとpage は同じ値になる
+    スクロールがあった場合、スクロールした方向のみ数値が異なっていく
+    この数値の差がスクロール量になる, offsetだけブラウザ各社使用している
+========================================================================== */
+                console.log("要素内" + e.offsetX + "縦" + e.offsetY); // 要素（画像）内の座標
+            });
+        });
+
+/* ============================================
+    onkeydown で取得できる3つをコンソールに表示
+    ブラウザ内でキー入力されたらという形でイベント発火
+============================================ */
+
+        window.addEventListener("keydown", function(e) {
+            console.log("keyは" + e.key); // 入力されるものは大文字小文字で区別される 推奨はe.key
+            console.log("キーcodeは" + e.code); // 入力されるものはkeyのあとに打った文字、それ以外はキーの名前
+            console.log("keycodeは" + e.keyCode); // アスキーコード
+        });
+// 連続入力は文字入力ではなく、javascript の実行速度に影響される（マシンスペック）
+/* ==================================================================================
+    イベント時の関数に引数は渡せない
+    引数を渡して実行したい場合、イベント時の関数から引数が必要な関数を呼び出す形となる
+============================================================================   */
+/* ==================================================================================
+    1枚目の画像をクリックされたら、まず無名関数を用意しておき、その無名関数から引数と値
+    100 という数字を渡し関数を呼び出し、その関数でwidthを100pxに指定する
+================================================================================== */
+
+        Image[0].addEventListener("click", function(e) {
+            reSize(100, e); // reSize(100) でもよい
+        });
+        function reSize(x, e) {
+            Image[0].style.width = x + "px";
+            console.log(e.clientX); // イベント情報の受け渡しも可能
+        }
+// ________________________________________________________________________________
+// 入力フォームデータの取得 各変数にidを代入
+        const L_name = document.getElementById("l_name");
+        const F_name = document.getElementById("f_name");
+        const Btn = document.getElementById("btn");
+        const Result = document.getElementById("result");
+
+// イベント処理関数
+        Btn.addEventListener("click", function() {
+            Result.innerHTML = L_name.value + F_name.value + "さんいらっしゃいませ";
+/* ================================================================================
+    クリックで何度も実行されるので、innerHTMLで常に上書きの形とする
+    insertAdjacentHTMLでやるとどんどん段落が増えてしまう
+    今回、value値を変数などに取得していない
+    1度きりの使用の時は変数に格納しないで処理することでメモリの節約になる
+    （ブラウザは基本メモリ消費が大きく重くなるため節約できるところは節約したい）
+================================================================================ */
+        });
+
+
+    </script>
+</body>
+</html>
