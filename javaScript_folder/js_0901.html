@@ -18,9 +18,10 @@
         スタートボタンでタイマーが進む<br>
         ストップボタンでタイマー停止
     </p>
-    <P id="timer">0</P>
+    <P id="timer"></P>
     <input type="button" value="start" id="btn4">
     <input type="button" value="stop" id="btn5">
+    <input type="button" value="タイマーリセット" id="btn6">
 
     <script>
 // change ボタンクリックで3秒後に文字色を赤くする
@@ -60,17 +61,69 @@ setTimeout による自己呼び出しを行う という処理を記載する *
         }
 // 確認用        bgChange();
 // 上記の関数呼び出しは、関数の動作確認用なので、動きが問題なければ消去（今回コメントアウト）
-    const Btn2 =   document.getElementById("btn2");  // startボタン
-    const Btn3 = document.getElementById("btn3");  // stopボタン
+        const Btn2 =   document.getElementById("btn2");  // startボタン
+        const Btn3 = document.getElementById("btn3");  // stopボタン
 // startボタンクリックでbgChange 関数を実行
         Btn2.addEventListener("click", bgChange);
-/* ==============================================================
+/* ____________________________________________________________________
 上記のボタンクリックの場合、最初の変化はクリック直後になる
 最初の変化も100ミリ秒後にしたい場合は
 Btn2.addEventLitener("click", function() {
 setTimeout(bgChange, 1000) });
 とクリック時にもsetTimeoutで関数実行とする
-============================================================== */
+____________________________________________________________________*/
+        Btn3.addEventListener("click", function() {  // stopボタンで発火
+            clearTimeout(timeId); // setTimeoutの自己呼び出し終了
+        }); 
+/* ____________________________________________________________________
+timeId = setTimeout(bgChange, 1000);と timeId に代入している状態において
+clearTimeout(timeId); とすると、100ミリ秒待機中の命令の実行をクリア（中止）する
+それにより,自己呼び出しの繰り返しも行われなくなる。
+ ____________________________________________________________________ */
+
+/*  ____________________________________________________________________ 
+インターバル処理
+startボタンクリックでタイマーが動き出し、stopボタンクリックでタイマー停止
+タイマーのような処理時間に関わらず一定のタイムんぐで処理を開始する場合setInterval()で実行する
+ ____________________________________________________________________  */
+
+        const Timer = document.getElementById("timer");
+        const Btn4 = document.getElementById("btn4");
+        const Btn5 = document.getElementById("btn5");
+// Timer で取得した要素の値を実行ごとに1カウントアップする関数を作成
+        function timerUp() {
+            let num = Timer.innerHTML;  // 現在の値を取得
+            num++;  // カウントアップ
+            Timer.innerHTML = num;  // カウントアップした値を戻す
+        }
+/* ____________________________________________________________________
+    timerUp();
+上記は関数の動作確認で関数を一度実行。 確認後は不要になる
+ ____________________________________________________________________  */
+// 停止できるように変数に代入する形でsetInterval() を作成 
+// 上記が動いたら、上記命令がBtn4クリックで発火するようにイベント作成
+        let timeId2;  // 注意, 2つの関数で使用するので関数の外側でlet宣言を行う
+        Btn4.addEventListener("click", function() {
+// setInterval() で繰返しtimeUp関数を実行
+            timeId2 = setInterval(timerUp, 1000);
+        });
+        Btn5.addEventListener("click", function() {
+            clearInterval(timeId2);
+        });
+// タイマーリセットボタンでタイマーを0にする
+        const Btn6 = document.getElementById("btn6");
+        Btn6.addEventListener("click", function() {
+            Timer.innerHTML = 0;
+
+        });
+/* ____________________________________________________________________
+ストップウォッチのように60秒で1分と表示したい場合
+タイマーカウントアップ後に
+if(num>=60)というif文を作成し、60以上なら分を進めてnumは0にするという処理を行う
+専用のストップウォッチと違い描画などの処理の関係で、100ミリ秒単位までは可能だが
+それよりも短いスパンでの処理は一般のＰＣでは難しい
+____________________________________________________________________ */
+
     </script>
 </body>
 </html>
