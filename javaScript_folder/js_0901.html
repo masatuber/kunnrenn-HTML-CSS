@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイマーなど</title>
+</head>
+<body>
+    <p>ボタンクリックで文字色が赤くなる</p>
+    <input type="button" value="change" id="btn1"><br>
+    <p>
+        スタートボタンクリックで背景色がついたり消えたりする<br>
+        ストップボタンで停止する
+    </p>
+    <input type="button" value="start" id="btn2">
+    <input type="button" value="stop" id="btn3">
+    <p>
+        スタートボタンでタイマーが進む<br>
+        ストップボタンでタイマー停止
+    </p>
+    <P id="timer">0</P>
+    <input type="button" value="start" id="btn4">
+    <input type="button" value="stop" id="btn5">
+
+    <script>
+// change ボタンクリックで3秒後に文字色を赤くする
+        const Para = document.getElementsByTagName("p");
+        const Btn1 = document.getElementById("btn1");
+// クリックイベント設定
+        Btn1.addEventListener("click", function() {
+// setTimeout で繰返し処理をしない場合は無名関数も使用出来る
+            setTimeout(function() {
+                Para[0].style.color = "red";
+            }, 3000);
+        });
+/* ==============================================================
+    拝啓色を付けたり外したりする時は、外すとは背景色を元に戻す処理となる
+    今回は背景色を元の白と赤を交互に繰り返す処理とする
+    この場合、現在の背景色を毎回if文を使用し
+    if(要素.style.backgroundColor == "red")で判定するか
+    flag変数を用意してtrueとfalseでそれぞれの色と結び付けてif(flag)で判定する
+============================================================== */
+        let flag, timeId;  // timeId は繰返しの終了に使用する変数
+// 繰返しsetTimeout を実行するときは関数の自己呼び出しを行うので無名関数では出来ない
+
+// flag 変数はtrueが白、false が赤として処理を行う
+// 背景の初期は白なので、flag変数にtrueを代入しておく
+        flag = true;
+        function bgChange() {
+/*   flag を反転する（変化した色の状態に合わせる)
+setTimeout による自己呼び出しを行う という処理を記載する */
+            if(flag) {
+                Para[1].style.backgroundColor = "red"; // trueなら白なので赤にする
+
+            } else {
+                Para[1].style.backgroundColor = "white"; // falseなら赤なので白にする
+            }
+            flag = !flag;  // flagを反転させて再代入する
+            timeId = setTimeout(bgChange, 1000);
+        }
+// 確認用        bgChange();
+// 上記の関数呼び出しは、関数の動作確認用なので、動きが問題なければ消去（今回コメントアウト）
+    const Btn2 =   document.getElementById("btn2");  // startボタン
+    const Btn3 = document.getElementById("btn3");  // stopボタン
+// startボタンクリックでbgChange 関数を実行
+        Btn2.addEventListener("click", bgChange);
+/* ==============================================================
+上記のボタンクリックの場合、最初の変化はクリック直後になる
+最初の変化も100ミリ秒後にしたい場合は
+Btn2.addEventLitener("click", function() {
+setTimeout(bgChange, 1000) });
+とクリック時にもsetTimeoutで関数実行とする
+============================================================== */
+    </script>
+</body>
+</html>
