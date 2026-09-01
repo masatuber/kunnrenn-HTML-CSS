@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダー入力欄で操作</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calendar">
+        <div class="month">
+            <i class="fas fa-angle-left prev"></i>
+            <div class="date">
+                <h1></h1>
+                <p></p>
+            </div>
+            <i class="fas fa-angle-right next"></i>
+            </div>
+            <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+            </div>
+            <div class="days"></div>
+        </div>
+        </div>
+    <script>
+    // カレンダー作成に必要な変数
+        const date = new Date();  // 日付
+
+        function renderCalendar() {
+            date.setDate(1);
+
+            const mothDays = document.querySelector(".days");
+            
+            const lastDay = new Date(
+                date.getFullYear(),
+                date.getMonth() +1,
+                0
+            ).getDate();
+            
+            console.log("lastDayは",lastDay)
+
+            const prevLastDay = new Date(
+                date.getFullYear(),
+                date.getMonth(),
+                0
+            ).getDay();
+
+            console.log("prevLastDayは", prevLastDay);
+
+            const firstDayIndex = date.getDay();
+            console.log("firstDayIndexは", firstDayIndex);
+        }
+        renderCalendar();
+    </script>
+</body>
+</html>
