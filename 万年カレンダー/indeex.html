@@ -1,62 +1,74 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カレンダー入力欄で操作</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カレンダーを表示したい</title>
 </head>
 <body>
-    <div class="container">
-        <div class="calendar">
-        <div class="month">
-            <i class="fas fa-angle-left prev"></i>
-            <div class="date">
-                <h1></h1>
-                <p></p>
-            </div>
-            <i class="fas fa-angle-right next"></i>
-            </div>
-            <div class="weekdays">
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
-            </div>
-            <div class="days"></div>
-        </div>
-        </div>
-    <script>
-    // カレンダー作成に必要な変数
-        const date = new Date();  // 日付
+    <p>
+        年<input type="text" id="input_year">
+        月<input type="text" id="input_moth">
+    </p>
+    <P>
+        <input type="button" value="表示" id="input_calendar">
+    </P>
+  <table id="table1">
+    
+  </table>
+  <script>
+    let inputValues1 = "";
+    let inputValues2;
 
-        function renderCalendar() {
-            date.setDate(1);
+    const tableId = document.getElementById("table1");
+    console.log("tableIdは", tableId);
+    let days = 6;
+    let day = 1 - days;
+    let el = "";
+    let dayCount = 0;
 
-            const mothDays = document.querySelector(".days");
-            
-            const lastDay = new Date(
-                date.getFullYear(),
-                date.getMonth() +1,
-                0
-            ).getDate();
-            
-            console.log("lastDayは",lastDay)
+    el = "<caption>"+ inputValues2+ "月"+ "</caption><tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>";
+    el += `<tr>`;
 
-            const prevLastDay = new Date(
-                date.getFullYear(),
-                date.getMonth(),
-                0
-            ).getDay();
+    for (let i = day; i <= 31; i++) {
+// day（1 - days）から、31日までループを回すことで、1未満（0やマイナス）の期間ができる
+        if (i < 1 || i > 31) {
+        el += `<td>&nbsp;</td>`;
+    } else {
+        el += `<td>${i}</td>`;
+    } 
+    dayCount++;
 
-            console.log("prevLastDayは", prevLastDay);
+// 7日ごとに改行する
+    if (dayCount % 7 === 0 && i < 31 ) {
+    el += `</tr><tr>`;
+    }
+    
+  }
+  el += `</tr>`;
+  tableId.innerHTML = el;
+  console.log(el)
 
-            const firstDayIndex = date.getDay();
-            console.log("firstDayIndexは", firstDayIndex);
-        }
-        renderCalendar();
-    </script>
+ 
+
+// 年の値取得
+  function inputChangeYear(e) {
+    console.log(e.currentTarget.value)
+    inputValues1 += e.currentTarget.value;
+  }
+
+  const inputY =document.getElementById("input_year");
+  inputY.addEventListener("input", inputChangeYear);
+
+// 月の値取得
+    function inputChangeMoth(e) {
+    console.log(e.currentTarget.value);
+    inputValues2 += e.currentTarget.value;
+  }
+
+  const inputM = document.getElementById("input_moth");
+  inputM.addEventListener("input", inputChangeMoth);
+
+  </script>
 </body>
 </html>

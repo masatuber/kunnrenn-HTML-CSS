@@ -11,11 +11,33 @@
   </table>
   <script>
     const tableId = document.getElementById("table1");
-    console.log( tableId);
+    console.log("tableIdは", tableId);
 
-    for (let i = 1; i <= 31; i++) {
-    tableId.innerHTML += `<tr>${i}</tr>`;
+    let days = 6;
+    let day = 1 - days;
+    let el = "";
+    let dayCount = 0;
+
+    el += `<tr>`;
+
+    for (let i = day; i <= 31; i++) {
+// ay（1 - days）から、31日までループを回すことで、1未満（0やマイナス）の期間ができる
+      if (i < 1 || i > 31) {
+        el += `<td>&nbsp;</td>`;
+    } else {
+      el += `<td>${i}</td>`;
+    } 
+    dayCount++;
+
+// 7日ごとに改行する
+    if (dayCount % 7 === 0 && i < 31 ) {
+    el += `</tr><tr>`;
     }
+    
+  }
+  el += `</tr>`;
+  tableId.innerHTML = el;
+  console.log(el)
 
   </script>
 </body>
