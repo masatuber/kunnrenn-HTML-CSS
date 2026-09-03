@@ -18,7 +18,7 @@
   </table>
   <script>
     let inputValues1 = "";
-    let inputValues2;
+    let inputValues2 = "";
 
     const tableId = document.getElementById("table1");
     console.log("tableIdは", tableId);
@@ -27,7 +27,7 @@
     let el = "";
     let dayCount = 0;
 
-    el = "<caption>"+ inputValues2+ "月"+ "</caption><tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>";
+    el = `<caption>月</caption>` + "<tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>";
     el += `<tr>`;
 
     for (let i = day; i <= 31; i++) {
@@ -51,21 +51,26 @@
 
  
 
-// 年の値取得
+// 年の値取得関数
   function inputChangeYear(e) {
-    console.log(e.currentTarget.value)
+    const getElCaption =  document.getElementsByTagName("caption");
     inputValues1 += e.currentTarget.value;
-  }
+    console.log(e.currentTarget.value);
 
+    getElCaption[0].insertAdjacentElement("afterbegin", inputValues1);
+  }
+// 年のエレメントを取得しクリックで発火
   const inputY =document.getElementById("input_year");
   inputY.addEventListener("input", inputChangeYear);
 
-// 月の値取得
+// 月の値取得の関数
     function inputChangeMoth(e) {
+    const getElCaption =  document.getElementsByTagName("caption");
     console.log(e.currentTarget.value);
     inputValues2 += e.currentTarget.value;
+    getElCaption[0].insertAdjacentHTML("afterbegin", inputValues2);
   }
-
+//  月のエレメントを取得しクリックで発火
   const inputM = document.getElementById("input_moth");
   inputM.addEventListener("input", inputChangeMoth);
 
